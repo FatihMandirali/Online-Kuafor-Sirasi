@@ -1,0 +1,151 @@
+﻿
+@{
+    ViewBag.Title = "KuaforSahipIncele";
+    Layout = "~/Views/YoneticiAdmin/Index.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Detaylar</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2" ng-controller="kuaforsahibidetay">
+
+        <hr />
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Ad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Ad" value="{{kuaforsa.Ad}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Soyad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Soyad" value="{{kuaforsa.Soyad}}" />
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("EMail", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control EMail" value="{{kuaforsa.Email}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Kullanıcı Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control KullaniciAdi" value="{{kuaforsa.KullaniciAdi}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Şifre", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Sifre" value="{{kuaforsa.Sifre}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Şehir", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="Sehir" id="Sehir" class="form-control">
+                    <option value="{{kuaforsa.Sehir}}">{{kuaforsa.Sehir}}</option>
+                </select>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Semt", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <select name="Semt" id="Semt" class="form-control" disabled="disabled">
+                    <option value="{{kuaforsa.Semt}}">{{kuaforsa.Semt}}</option>
+                </select>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Telefon", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Telefon" value="{{kuaforsa.Telefon}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Tc", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Tc" value="{{kuaforsa.Tc}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Doğum Tarihi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control DogumTarihi" value="{{kuaforsa.DogumTarihi}}" />
+
+            </div>
+        </div>
+
+        <input type="hidden" class="dd" value="{{kuaforsa.Id}}" />
+        <div class="form-group">
+            <button type="button" id="btnkuaforsahipguncelle" class="btn btn-success">
+                <span class="glyphicon glyphicon-floppy-disk"></span>Güncelle
+            </button>
+            @*@Html.ActionLink("Listeye Dön", "Index", "Hizmetliler", null, new { @class = "btn btn-default" })*@
+
+            <a href="/BackEnd/Blog/" class="btn btn-default">
+                Listeye Dön
+            </a>
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,97 @@
+﻿.onoffswitch2 {
+    position: relative; width: 200px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox2 {
+    display: none;
+}
+.onoffswitch-label2 {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 15px;
+}
+.onoffswitch-inner2 {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner2:before, .onoffswitch-inner2:after {
+    display: block; float: left; width: 50%; height: 75px; padding: 0; line-height: 75px;
+    font-size: 40px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner2:before { 
+    content: "Kapalı";
+    padding-left: 10px;   
+    background-color: #EEEEEE; color: #999999;
+    text-align: left;
+   
+}
+.onoffswitch-inner2:after {
+    content: "Açık";
+    padding-right: 10px;
+    background-color: #34A7C1; color: #FFFFFF;
+    text-align: right;
+}
+.onoffswitch-switch2 {
+    display: block; width: 50px; margin: 12.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 121px;
+    border: 2px solid #999999; border-radius: 15px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox2:checked + .onoffswitch-label2 .onoffswitch-inner2{
+    margin-left: 0;
+}
+.onoffswitch-checkbox2:checked + .onoffswitch-label2 .onoffswitch-switch2 {
+    right: 0px; 
+}
+/*asfasf*/
+.onoffswitch1 {
+    position: relative; width: 200px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox1 {
+    display: none;
+}
+.onoffswitch-label1 {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 15px;
+}
+.onoffswitch-inner1 {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner1:before, .onoffswitch-inner1:after {
+    display: block; float: left; width: 50%; height: 75px; padding: 0; line-height: 75px;
+    font-size: 40px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner1:before { 
+   
+    content: "Açık";
+    padding-left: 10px;
+    background-color: #34A7C1; color: #FFFFFF;
+}
+.onoffswitch-inner1:after { 
+    content: "Kapalı";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+   
+}
+.onoffswitch-switch1 {
+    display: block; width: 50px; margin: 12.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 121px;
+    border: 2px solid #999999; border-radius: 15px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox1:checked + .onoffswitch-label1 .onoffswitch-inner1 {
+    margin-left: 0;
+}
+.onoffswitch-checkbox1:checked + .onoffswitch-label1 .onoffswitch-switch1 {
+    right: 0px; 
+}
+
+

@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "YoneticiIncele";
+    Layout = "~/Views/YoneticiAdmin/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Detaylar</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2" ng-controller="yoneticiguncelle">
+
+        <hr />
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Ad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Ad" value="{{yonet.Ad}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Soyad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Soyad" value="{{yonet.Soyad}}" />
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("EMail", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control EMail" value="{{yonet.Email}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Kullanıcı Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control KullaniciAdi" value="{{yonet.KullaniciAdi}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Şifre", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Sifre" value="{{yonet.Sifre}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Şehir", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="Sehir" id="Sehir" class="form-control">
+                    <option value="{{yonet.Sehir}}">{{yonet.Sehir}}</option>
+                </select>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Semt", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <select name="Semt" id="Semt" class="form-control" disabled="disabled">
+                    <option value="{{yonet.Semt}}">{{yonet.Semt}}</option>
+                </select>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Telefon", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Telefon" value="{{yonet.Telefon}}" />
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Doğum Tarihi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control DogumTarihi" value="{{yonet.DogumTarihi}}" />
+
+            </div>
+        </div>
+
+        <input type="hidden" class="dd" value="{{yonet.Id}}" />
+        <div class="form-group">
+            <button type="button" id="btnyoneticiguncelle" class="btn btn-success">
+                <span class="glyphicon glyphicon-floppy-disk"></span>Güncelle
+            </button>
+            @*@Html.ActionLink("Listeye Dön", "Index", "Hizmetliler", null, new { @class = "btn btn-default" })*@
+
+            <a href="/BackEnd/Blog/" class="btn btn-default">
+                Listeye Dön
+            </a>
+
+        </div>
+
+
+
+    </div>
+</div>
+

@@ -1,0 +1,35 @@
+﻿
+<div class="col-md-12 kuaforler" ng-show="hiddenprofilim">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="pricing card-deck flex-column flex-md-row mb-3" ng-controller="_kullaniciprofilprofil">
+                    <div class="card card-pricing text-center px-3 mb-4">
+                        <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white shadow-sm" id="trascesitbaslik">Profil</span>
+                        <div class="card-body pt-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <img src="~/Belgeler/Avatarlar/{{pprof.Avatar}}" class="img-circle" width="128" height="128" />
+
+                                        <br /><br />
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    Ad Soyad :  <b class="">{{pprof.Ad}} {{pprof.Soyad}}</b><br />
+                                    Kullanıcı Adı : <b class="">{{pprof.KullaniciAdi}}</b><br />
+                                    E-Mail : <b class="">{{pprof.Mail}}</b><br />
+                                    Telefon : <b class="">{{pprof.Telefon}}</b><br /><br />
+                                    @*<button type="button" class="btn btn-outline-success mb-3">Profili Düzenle</button>
+                                    <button type="button" class="btn btn-outline-secondary mb-3">Yarışmaya Katıl</button>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+﻿/*Şeçilen ilin sayfası*/
+.navbarblog1{
+    border:2px #1886c7 solid  !important;
+   color: #1886c7;
+}
+
+.navbarblog1:hover{
+    border:2px #1886c7 solid  !important;
+   color: black;
+}

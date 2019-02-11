@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "KuaforSiraAl";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Belgeler/FrontEnd/Css/SiraAl/Checks.css" rel="stylesheet" />
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#nvbCollapse">
+            <span class="navbar-toggler-icon"> </span>
+        </button>
+        <a href="#" class="navbar-brand">Kuaför Sırası</a>
+        <div class="collapse navbar-collapse" id="nvbCollapse">
+            <div class=" ml-5 col-md-3">
+
+            </div>
+            <div class=" ml-2 col-md-5">
+
+
+            </div>
+
+
+            <a href="#" class="btn btn-sm ml-2 navbarblog" data-toggle="modal" data-target=".login-register-form">Kullanıcı Üyeliği</a>
+            <a href="#" class="btn btn-sm ml-2 navbarblog" data-toggle="modal" data-target=".kuaforYonetimUyelik">Kuaför Üyeliği</a>
+
+
+        </div>
+    </div>
+</nav>
+
+<div style="margin-top:100px !important;"></div>
+<input type="hidden" id="gelenad" value="@TempData["sehirad"]" />
+
+<!------------------------------------------------------------------------------>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+
+            @Html.Partial("_KuaforDetayKullaniciLogin")
+        </div>
+        <div class="col-md-9">
+            <div class="col-md-12">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Traş Çeşitleri
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row" ng-controller="kuaforsiraal">
+                                <div class="col-md-3 searchable-container" ng-repeat="x in trascesit">
+                                    <div class="items">
+                                        <div class="info-block block-info clearfix">
+                                            <div class="square-box pull-left">
+                                                <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
+                                            </div>
+                                            <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                                                <label class="btn btn-default" id="chcTrasCesileri">
+                                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="{{x.Cesit}}">
+                                                    <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+                                                    <h5>{{x.Cesit}}</h5>
+                                                    <b>Fiyat : </b>{{x.Fiyat}}₺<br />
+                                                    <b>Süre : </b>{{x.Dk}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <br />
+                <div class="card text-center">
+                    <div class="card-header">
+                        Traş Elemanları
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row" ng-controller="kuafortraseleman">
+                                <div class="col-md-6 searchable-container" ng-repeat="x in traseleman">
+                                    <div class="items">
+                                        <div class="info-block block-info clearfix">
+                                            <div class="square-box pull-left">
+                                                <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
+                                            </div>
+                                            <div data-toggle="buttons" id="rdKuaforElemanSec" class="btn-group bizmoduleselect">
+                                                <label class="btn btn-default" name="{{x.Id}}" id="kuaforSiraElemanSecimi">
+                                                    <input type="radio" name="kuaforelemanlari" value="{{x.Id}}" autocomplete="off"><br />
+                                                    <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+                                                    <b>Ad : </b>{{x.Adi}}<br />
+                                                    <b>Soyad : </b>{{x.Soyadi}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <br />
+                <div class="card text-center">
+                    <div class="card-header">
+                        Traş Saatleri
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <b> Tarihi Seç : </b><input type="date" id="kuaforTarihAralik" value="" /> <hr />
+                            <div class="row" id='siraAlAralik'>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div><br />
+                <input type="button" id="btnSecilenGor" class="form-control btn btn-success" value="Sıranı Al" />
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+@Html.Partial("_KullaniciRegister")
+@Html.Partial("_KuaforAdminUyeligi")

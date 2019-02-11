@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -161,13 +167,484 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Belgeler\BaseController\BaseController.cs" />
+    <Compile Include="Belgeler\BaseController\BaseControllerYonetici.cs" />
+    <Compile Include="Belgeler\ResizeImage\ResizeImage.cs" />
+    <Compile Include="Controllers\Api\AnketlerController.cs" />
+    <Compile Include="Controllers\Api\KuaforAktiflikController.cs" />
+    <Compile Include="Controllers\Api\KuaforAnketController.cs" />
+    <Compile Include="Controllers\Api\KuaforElemanlariController.cs" />
+    <Compile Include="Controllers\Api\KuaforFirsatlarController.cs" />
+    <Compile Include="Controllers\Api\KuaforlerController.cs" />
+    <Compile Include="Controllers\Api\KuaforMesajController.cs" />
+    <Compile Include="Controllers\Api\KuaforPuanController.cs" />
+    <Compile Include="Controllers\Api\KuaforSaatleriController.cs" />
+    <Compile Include="Controllers\Api\KuaforSahipController.cs" />
+    <Compile Include="Controllers\Api\KuaforTrasCesitleriController.cs" />
+    <Compile Include="Controllers\Api\KuaforYorumController.cs" />
+    <Compile Include="Controllers\Api\KullaniciController.cs" />
+    <Compile Include="Controllers\Api\KullaniciCuzdanController.cs" />
+    <Compile Include="Controllers\Api\KullaniciProfilFavorilerController.cs" />
+    <Compile Include="Controllers\Api\VeriTabaniHarici\KuaforDetayYorumlarController.cs" />
+    <Compile Include="Controllers\Api\VeriTabaniHarici\SiraAlController.cs" />
+    <Compile Include="Controllers\Api\YoneticiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KuaforAdminController.cs" />
+    <Compile Include="Controllers\YoneticiAdminController.cs" />
+    <Compile Include="Core\Domain\KuaforAktiflik.cs" />
+    <Compile Include="Core\Domain\KuaforAnket.cs" />
+    <Compile Include="Core\Domain\KuaforAnketCevap.cs" />
+    <Compile Include="Core\Domain\KuaforElemanlari.cs" />
+    <Compile Include="Core\Domain\KuaforFirsat.cs" />
+    <Compile Include="Core\Domain\Kuaforler.cs" />
+    <Compile Include="Core\Domain\KuaforMesaj.cs" />
+    <Compile Include="Core\Domain\KuaforPuan.cs" />
+    <Compile Include="Core\Domain\KuaforSaatleri.cs" />
+    <Compile Include="Core\Domain\KuaforSahip.cs" />
+    <Compile Include="Core\Domain\KuaforSira.cs" />
+    <Compile Include="Core\Domain\KuaforTrasCesitleri.cs" />
+    <Compile Include="Core\Domain\KuaforTrasSaatiAralik.cs" />
+    <Compile Include="Core\Domain\KuaforYorum.cs" />
+    <Compile Include="Core\Domain\Kullanici.cs" />
+    <Compile Include="Core\Domain\Modeller\Dene.cs" />
+    <Compile Include="Core\Domain\Modeller\Dene1.cs" />
+    <Compile Include="Core\Domain\Modeller\KuaforAdminModel\KuaforHizliSira.cs" />
+    <Compile Include="Core\Domain\Modeller\KuaforAdminModel\KuaforHizliSiraRequest.cs" />
+    <Compile Include="Core\Domain\Modeller\KuaforAdminModel\KuaforHizliSiraResponse.cs" />
+    <Compile Include="Core\Domain\Modeller\KuaforAdminModel\KuaforSiralarResponse.cs" />
+    <Compile Include="Core\Domain\Modeller\KuaforAdminModel\KuaforYorumResponse.cs" />
+    <Compile Include="Core\Domain\Modeller\KuaforAdminModel\ManagerMessageRequest.cs" />
+    <Compile Include="Core\Domain\Modeller\KuaforAdminModel\MessagesRequest.cs" />
+    <Compile Include="Core\Domain\Modeller\KuaforAdminModel\MessageUsersListResponse.cs" />
+    <Compile Include="Core\Domain\Modeller\KuaforDetayResponse.cs" />
+    <Compile Include="Core\Domain\Modeller\KuaforFirsatlarMainPageResponse.cs" />
+    <Compile Include="Core\Domain\Modeller\KullaniciAlinanSiralar.cs" />
+    <Compile Include="Core\Domain\KullaniciCuzdan.cs" />
+    <Compile Include="Core\Domain\KullaniciFavorileri.cs" />
+    <Compile Include="Core\Domain\KullaniciIslemleri.cs" />
+    <Compile Include="Core\Domain\KullaniciRozet.cs" />
+    <Compile Include="Core\Domain\Modeller\Iller.cs" />
+    <Compile Include="Core\Domain\Modeller\KuaforAdminModel\KuaforSecimResponse.cs" />
+    <Compile Include="Core\Domain\Modeller\KuaforDetayYorum.cs" />
+    <Compile Include="Core\Domain\Modeller\KuaforSiraAlRequest.cs" />
+    <Compile Include="Core\Domain\Modeller\KullaniciAvatarSecim.cs" />
+    <Compile Include="Core\Domain\Modeller\KullaniciCuzdanParaKazan.cs" />
+    <Compile Include="Core\Domain\Modeller\KullaniciFavorilerRequest.cs" />
+    <Compile Include="Core\Domain\Modeller\KullaniciFavorilerResponse.cs" />
+    <Compile Include="Core\Domain\Modeller\KullaniciMesajGonderRequest.cs" />
+    <Compile Include="Core\Domain\Modeller\KullaniciMessageRequest.cs" />
+    <Compile Include="Core\Domain\Modeller\KullaniciMessagesRequest.cs" />
+    <Compile Include="Core\Domain\Modeller\KullaniciProfilProfil.cs" />
+    <Compile Include="Core\Domain\Modeller\KullaniciYorumRequest.cs" />
+    <Compile Include="Core\Domain\Modeller\LoginViewModel.cs" />
+    <Compile Include="Core\Domain\Modeller\YoneticiAdminModel\GorevlerRequest.cs" />
+    <Compile Include="Core\Domain\Modeller\YoneticiAdminModel\KuaforFirsatlarResponse.cs" />
+    <Compile Include="Core\Domain\Modeller\YoneticiAdminModel\KuaforlerListResponse.cs" />
+    <Compile Include="Core\Domain\Rozetler.cs" />
+    <Compile Include="Core\Domain\YeniEklenenKuaforler.cs" />
+    <Compile Include="Core\Domain\Yonetici.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\IKuaforAktiflikRepository.cs" />
+    <Compile Include="Core\Repositories\IKuaforAnketCevapRepository.cs" />
+    <Compile Include="Core\Repositories\IKuaforAnketRepository.cs" />
+    <Compile Include="Core\Repositories\IKuaforElemanlariRepository.cs" />
+    <Compile Include="Core\Repositories\IKuaforFirsatRepository.cs" />
+    <Compile Include="Core\Repositories\IKuaforlerRepository.cs" />
+    <Compile Include="Core\Repositories\IKuaforMesajRepository.cs" />
+    <Compile Include="Core\Repositories\IKuaforPuanRepository.cs" />
+    <Compile Include="Core\Repositories\IKuaforSaatleriRepository.cs" />
+    <Compile Include="Core\Repositories\IKuaforSahipRepository.cs" />
+    <Compile Include="Core\Repositories\IKuaforSiraRepository.cs" />
+    <Compile Include="Core\Repositories\IKuaforTrasCesitleriRepository.cs" />
+    <Compile Include="Core\Repositories\IKuaforTrasSaatiAralikRepository.cs" />
+    <Compile Include="Core\Repositories\IKuaforYorumRepository.cs" />
+    <Compile Include="Core\Repositories\IKullaniciCuzdanRepository.cs" />
+    <Compile Include="Core\Repositories\IKullaniciFavorileriRepository.cs" />
+    <Compile Include="Core\Repositories\IKullaniciIslemleriRepository.cs" />
+    <Compile Include="Core\Repositories\IKullaniciRepository.cs" />
+    <Compile Include="Core\Repositories\IKullaniciRozetRepository.cs" />
+    <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Core\Repositories\IRozetlerRepository.cs" />
+    <Compile Include="Core\Repositories\IYeniEklenenKuaforlerRepository.cs" />
+    <Compile Include="Core\Repositories\IYoneticiRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="KuaforSaatAraligi\KuaforSaatAralik.cs" />
+    <Compile Include="Migrations\201811231620397_Tablolar.cs" />
+    <Compile Include="Migrations\201811231620397_Tablolar.Designer.cs">
+      <DependentUpon>201811231620397_Tablolar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811241841582_KuaforTrasCesitleri_KuaforId.cs" />
+    <Compile Include="Migrations\201811241841582_KuaforTrasCesitleri_KuaforId.Designer.cs">
+      <DependentUpon>201811241841582_KuaforTrasCesitleri_KuaforId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811260808068_KuaforSahipteCagirma.cs" />
+    <Compile Include="Migrations\201811260808068_KuaforSahipteCagirma.Designer.cs">
+      <DependentUpon>201811260808068_KuaforSahipteCagirma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811260812008_KuaforSahipTablosuVirtualEkleme.cs" />
+    <Compile Include="Migrations\201811260812008_KuaforSahipTablosuVirtualEkleme.Designer.cs">
+      <DependentUpon>201811260812008_KuaforSahipTablosuVirtualEkleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811260813458_SilDenemesi.cs" />
+    <Compile Include="Migrations\201811260813458_SilDenemesi.Designer.cs">
+      <DependentUpon>201811260813458_SilDenemesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811260820034_SilDenemesi-force.cs" />
+    <Compile Include="Migrations\201811260820034_SilDenemesi-force.Designer.cs">
+      <DependentUpon>201811260820034_SilDenemesi-force.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811260822507_ForeignKeyEskiHali.cs" />
+    <Compile Include="Migrations\201811260822507_ForeignKeyEskiHali.Designer.cs">
+      <DependentUpon>201811260822507_ForeignKeyEskiHali.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811260824188_SilTablosuSilindi.cs" />
+    <Compile Include="Migrations\201811260824188_SilTablosuSilindi.Designer.cs">
+      <DependentUpon>201811260824188_SilTablosuSilindi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811260835323_Sil1Eklendi2.cs" />
+    <Compile Include="Migrations\201811260835323_Sil1Eklendi2.Designer.cs">
+      <DependentUpon>201811260835323_Sil1Eklendi2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811260837574_Sil1Silindi.cs" />
+    <Compile Include="Migrations\201811260837574_Sil1Silindi.Designer.cs">
+      <DependentUpon>201811260837574_Sil1Silindi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811260847391_SonDegisiklikKuaforler.cs" />
+    <Compile Include="Migrations\201811260847391_SonDegisiklikKuaforler.Designer.cs">
+      <DependentUpon>201811260847391_SonDegisiklikKuaforler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811262005335_KuaforSahiptenSildim.cs" />
+    <Compile Include="Migrations\201811262005335_KuaforSahiptenSildim.Designer.cs">
+      <DependentUpon>201811262005335_KuaforSahiptenSildim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811262021380_KuaforElemanlariGuncellendi.cs" />
+    <Compile Include="Migrations\201811262021380_KuaforElemanlariGuncellendi.Designer.cs">
+      <DependentUpon>201811262021380_KuaforElemanlariGuncellendi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811262029091_KuaforTrasSaatiAralikGuncellendi.cs" />
+    <Compile Include="Migrations\201811262029091_KuaforTrasSaatiAralikGuncellendi.Designer.cs">
+      <DependentUpon>201811262029091_KuaforTrasSaatiAralikGuncellendi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811262036044_KuaforTrasSaatiAralikGuncellendi1.cs" />
+    <Compile Include="Migrations\201811262036044_KuaforTrasSaatiAralikGuncellendi1.Designer.cs">
+      <DependentUpon>201811262036044_KuaforTrasSaatiAralikGuncellendi1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811272141288_VeriTabaniForeignKey.cs" />
+    <Compile Include="Migrations\201811272141288_VeriTabaniForeignKey.Designer.cs">
+      <DependentUpon>201811272141288_VeriTabaniForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811291456067_KuaforSiraSaatAraligiBirlesti.cs" />
+    <Compile Include="Migrations\201811291456067_KuaforSiraSaatAraligiBirlesti.Designer.cs">
+      <DependentUpon>201811291456067_KuaforSiraSaatAraligiBirlesti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811291508301_KuaforSiraTarihToString.cs" />
+    <Compile Include="Migrations\201811291508301_KuaforSiraTarihToString.Designer.cs">
+      <DependentUpon>201811291508301_KuaforSiraTarihToString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811300823224_RegisterListDuzenlendi.cs" />
+    <Compile Include="Migrations\201811300823224_RegisterListDuzenlendi.Designer.cs">
+      <DependentUpon>201811300823224_RegisterListDuzenlendi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811301217024_KuaforSiraDurumEklendi.cs" />
+    <Compile Include="Migrations\201811301217024_KuaforSiraDurumEklendi.Designer.cs">
+      <DependentUpon>201811301217024_KuaforSiraDurumEklendi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812051907228_GorevlerTablosu.cs" />
+    <Compile Include="Migrations\201812051907228_GorevlerTablosu.Designer.cs">
+      <DependentUpon>201812051907228_GorevlerTablosu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812052220524_GorevlerTablosuBasariPuaniEklendi.cs" />
+    <Compile Include="Migrations\201812052220524_GorevlerTablosuBasariPuaniEklendi.Designer.cs">
+      <DependentUpon>201812052220524_GorevlerTablosuBasariPuaniEklendi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812061318230_GorevDurumTablosuEklendi.cs" />
+    <Compile Include="Migrations\201812061318230_GorevDurumTablosuEklendi.Designer.cs">
+      <DependentUpon>201812061318230_GorevDurumTablosuEklendi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812062229404_GorevlerveGorevDurumTablosuSilindi.cs" />
+    <Compile Include="Migrations\201812062229404_GorevlerveGorevDurumTablosuSilindi.Designer.cs">
+      <DependentUpon>201812062229404_GorevlerveGorevDurumTablosuSilindi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812140917422_KuaforSiraTamamlanmaDurumuColumn.cs" />
+    <Compile Include="Migrations\201812140917422_KuaforSiraTamamlanmaDurumuColumn.Designer.cs">
+      <DependentUpon>201812140917422_KuaforSiraTamamlanmaDurumuColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812201358111_KuaforMesajTablosunaKullaniciIdiForeignKey.cs" />
+    <Compile Include="Migrations\201812201358111_KuaforMesajTablosunaKullaniciIdiForeignKey.Designer.cs">
+      <DependentUpon>201812201358111_KuaforMesajTablosunaKullaniciIdiForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812201708315_KuaforMesajDurumlarEklendi.cs" />
+    <Compile Include="Migrations\201812201708315_KuaforMesajDurumlarEklendi.Designer.cs">
+      <DependentUpon>201812201708315_KuaforMesajDurumlarEklendi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812201733236_KullaniciMesajTablosuKullanıcıYöneticiBOOLEklendi.cs" />
+    <Compile Include="Migrations\201812201733236_KullaniciMesajTablosuKullanıcıYöneticiBOOLEklendi.Designer.cs">
+      <DependentUpon>201812201733236_KullaniciMesajTablosuKullanıcıYöneticiBOOLEklendi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901070958121_KullanicilarTableRemoveColumnDogumTarihi.cs" />
+    <Compile Include="Migrations\201901070958121_KullanicilarTableRemoveColumnDogumTarihi.Designer.cs">
+      <DependentUpon>201901070958121_KullanicilarTableRemoveColumnDogumTarihi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901071637346_KuaforSahipDeleteDogumTarihiColumn.cs" />
+    <Compile Include="Migrations\201901071637346_KuaforSahipDeleteDogumTarihiColumn.Designer.cs">
+      <DependentUpon>201901071637346_KuaforSahipDeleteDogumTarihiColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901080921021_KuaforlerTableKuaforSahipIdNotRequired.cs" />
+    <Compile Include="Migrations\201901080921021_KuaforlerTableKuaforSahipIdNotRequired.Designer.cs">
+      <DependentUpon>201901080921021_KuaforlerTableKuaforSahipIdNotRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Persistence\PlutoContext.cs" />
+    <Compile Include="Persistence\Repositories\KuaforAktiflikRepository.cs" />
+    <Compile Include="Persistence\Repositories\KuaforAnketCevapRepository.cs" />
+    <Compile Include="Persistence\Repositories\KuaforAnketRepository.cs" />
+    <Compile Include="Persistence\Repositories\KuaforElemanlariRepository.cs" />
+    <Compile Include="Persistence\Repositories\KuaforFirsatRepository.cs" />
+    <Compile Include="Persistence\Repositories\KuaforlerRepository.cs" />
+    <Compile Include="Persistence\Repositories\KuaforMesajRepository.cs" />
+    <Compile Include="Persistence\Repositories\KuaforPuanRepository.cs" />
+    <Compile Include="Persistence\Repositories\KuaforSaatleriRepository.cs" />
+    <Compile Include="Persistence\Repositories\KuaforSahipRepository.cs" />
+    <Compile Include="Persistence\Repositories\KuaforSiraRepository.cs" />
+    <Compile Include="Persistence\Repositories\KuaforTrasCesitleriRepository.cs" />
+    <Compile Include="Persistence\Repositories\KuaforTrasSaatiAralikRepository.cs" />
+    <Compile Include="Persistence\Repositories\KuaforYorumRepository.cs" />
+    <Compile Include="Persistence\Repositories\KullaniciCuzdanRepository.cs" />
+    <Compile Include="Persistence\Repositories\KullaniciFavorileriRepository.cs" />
+    <Compile Include="Persistence\Repositories\KullaniciIslemleriRepository.cs" />
+    <Compile Include="Persistence\Repositories\KullaniciRepository.cs" />
+    <Compile Include="Persistence\Repositories\KullaniciRozetRepository.cs" />
+    <Compile Include="Persistence\Repositories\Repository.cs" />
+    <Compile Include="Persistence\Repositories\RozetlerRepository.cs" />
+    <Compile Include="Persistence\Repositories\YeniEklenenKuaforlerRepository.cs" />
+    <Compile Include="Persistence\Repositories\YoneticiRepository.cs" />
+    <Compile Include="Persistence\Unit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Belgeler\Avatarlar\avatar1.png" />
+    <Content Include="Belgeler\Avatarlar\avatar10.png" />
+    <Content Include="Belgeler\Avatarlar\avatar11.png" />
+    <Content Include="Belgeler\Avatarlar\avatar12.png" />
+    <Content Include="Belgeler\Avatarlar\avatar13.png" />
+    <Content Include="Belgeler\Avatarlar\avatar14.png" />
+    <Content Include="Belgeler\Avatarlar\avatar15.png" />
+    <Content Include="Belgeler\Avatarlar\avatar16.png" />
+    <Content Include="Belgeler\Avatarlar\avatar17.png" />
+    <Content Include="Belgeler\Avatarlar\avatar18.png" />
+    <Content Include="Belgeler\Avatarlar\avatar19.png" />
+    <Content Include="Belgeler\Avatarlar\avatar2.png" />
+    <Content Include="Belgeler\Avatarlar\avatar20.png" />
+    <Content Include="Belgeler\Avatarlar\avatar21.png" />
+    <Content Include="Belgeler\Avatarlar\avatar22.png" />
+    <Content Include="Belgeler\Avatarlar\avatar23.png" />
+    <Content Include="Belgeler\Avatarlar\avatar24.png" />
+    <Content Include="Belgeler\Avatarlar\avatar25.png" />
+    <Content Include="Belgeler\Avatarlar\avatar26.png" />
+    <Content Include="Belgeler\Avatarlar\avatar27.png" />
+    <Content Include="Belgeler\Avatarlar\avatar28.png" />
+    <Content Include="Belgeler\Avatarlar\avatar29.png" />
+    <Content Include="Belgeler\Avatarlar\avatar3.png" />
+    <Content Include="Belgeler\Avatarlar\avatar30.png" />
+    <Content Include="Belgeler\Avatarlar\avatar31.png" />
+    <Content Include="Belgeler\Avatarlar\avatar32.png" />
+    <Content Include="Belgeler\Avatarlar\avatar33.png" />
+    <Content Include="Belgeler\Avatarlar\avatar34.png" />
+    <Content Include="Belgeler\Avatarlar\avatar35.png" />
+    <Content Include="Belgeler\Avatarlar\avatar36.png" />
+    <Content Include="Belgeler\Avatarlar\avatar37.png" />
+    <Content Include="Belgeler\Avatarlar\avatar38.png" />
+    <Content Include="Belgeler\Avatarlar\avatar39.png" />
+    <Content Include="Belgeler\Avatarlar\avatar4.png" />
+    <Content Include="Belgeler\Avatarlar\avatar40.png" />
+    <Content Include="Belgeler\Avatarlar\avatar41.png" />
+    <Content Include="Belgeler\Avatarlar\avatar42.png" />
+    <Content Include="Belgeler\Avatarlar\avatar43.png" />
+    <Content Include="Belgeler\Avatarlar\avatar44.png" />
+    <Content Include="Belgeler\Avatarlar\avatar45.png" />
+    <Content Include="Belgeler\Avatarlar\avatar46.png" />
+    <Content Include="Belgeler\Avatarlar\avatar47.png" />
+    <Content Include="Belgeler\Avatarlar\avatar48.png" />
+    <Content Include="Belgeler\Avatarlar\avatar5.png" />
+    <Content Include="Belgeler\Avatarlar\avatar6.png" />
+    <Content Include="Belgeler\Avatarlar\avatar7.png" />
+    <Content Include="Belgeler\Avatarlar\avatar8.png" />
+    <Content Include="Belgeler\Avatarlar\avatar9.png" />
+    <Content Include="Belgeler\BackEnd\css\sb-admin.css" />
+    <Content Include="Belgeler\BackEnd\css\sb-admin.min.css" />
+    <Content Include="Belgeler\BackEnd\js\sb-admin-charts.js" />
+    <Content Include="Belgeler\BackEnd\js\sb-admin-charts.min.js" />
+    <Content Include="Belgeler\BackEnd\js\sb-admin-datatables.js" />
+    <Content Include="Belgeler\BackEnd\js\sb-admin-datatables.min.js" />
+    <Content Include="Belgeler\BackEnd\js\sb-admin.js" />
+    <Content Include="Belgeler\BackEnd\js\sb-admin.min.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Css\KuaforAktiflik.css" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Css\Mesajlar.css" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\denee4.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforAdminGecmisSira.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforAdminLogin2.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforAktiflik1.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforAktiflikAngular1.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforElemanlari1.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforFirsatlar1.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforFirsatlar2.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforGelecekSira4.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforGelecekSira5.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforHizliSiraElemanSec1.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforHizliSiraSaatAralik.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforSaatleri2.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforSecimiAngular.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforSecimSession.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforTrasCesitleri2.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforTrasCesitleriIncele2.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforYorumlarAngular.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\KuaforYorumlarAngular1.js" />
+    <Content Include="Belgeler\BackEnd\KuaforAdmin\Js\Mesajlasma3.js" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Belgeler\BackEnd\vendor\chart.js\Chart.bundle.js" />
+    <Content Include="Belgeler\BackEnd\vendor\chart.js\Chart.bundle.min.js" />
+    <Content Include="Belgeler\BackEnd\vendor\chart.js\Chart.js" />
+    <Content Include="Belgeler\BackEnd\vendor\chart.js\Chart.min.js" />
+    <Content Include="Belgeler\BackEnd\vendor\datatables\dataTables.bootstrap4.css" />
+    <Content Include="Belgeler\BackEnd\vendor\datatables\dataTables.bootstrap4.js" />
+    <Content Include="Belgeler\BackEnd\vendor\datatables\jquery.dataTables.js" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Belgeler\BackEnd\vendor\jquery-easing\jquery.easing.compatibility.js" />
+    <Content Include="Belgeler\BackEnd\vendor\jquery-easing\jquery.easing.js" />
+    <Content Include="Belgeler\BackEnd\vendor\jquery-easing\jquery.easing.min.js" />
+    <Content Include="Belgeler\BackEnd\vendor\jquery\jquery.js" />
+    <Content Include="Belgeler\BackEnd\vendor\jquery\jquery.min.js" />
+    <Content Include="Belgeler\BackEnd\vendor\jquery\jquery.slim.js" />
+    <Content Include="Belgeler\BackEnd\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Belgeler\BackEnd\YoneticiAdmin\Js\AngularAll5.js" />
+    <Content Include="Belgeler\BackEnd\YoneticiAdmin\Js\AnketTumu1.js" />
+    <Content Include="Belgeler\BackEnd\YoneticiAdmin\Js\FirsatOnayTumu1.js" />
+    <Content Include="Belgeler\BackEnd\YoneticiAdmin\Js\GorevlerTumu.js" />
+    <Content Include="Belgeler\BackEnd\YoneticiAdmin\Js\KuaforCreateSehirveIlce.js" />
+    <Content Include="Belgeler\BackEnd\YoneticiAdmin\Js\KuaforSahipTumu1.js" />
+    <Content Include="Belgeler\BackEnd\YoneticiAdmin\Js\KuaforTumu4.js" />
+    <Content Include="Belgeler\BackEnd\YoneticiAdmin\Js\KuaforTumu5.js" />
+    <Content Include="Belgeler\BackEnd\YoneticiAdmin\Js\KuaforYonet.js" />
+    <Content Include="Belgeler\BackEnd\YoneticiAdmin\Js\KuaforYonet1.js" />
+    <Content Include="Belgeler\BackEnd\YoneticiAdmin\Js\KullaniciTumu1.js" />
+    <Content Include="Belgeler\BackEnd\YoneticiAdmin\Js\YoneticiAdminLogin.js" />
+    <Content Include="Belgeler\BackEnd\YoneticiAdmin\Js\YoneticiTumu1.js" />
+    <Content Include="Belgeler\FrontEnd\Css\bootstrap.css" />
+    <Content Include="Belgeler\FrontEnd\Css\IllerKuaforListesi\carstok.css" />
+    <Content Include="Belgeler\FrontEnd\Css\IllerKuaforListesi\kuafordetay.css" />
+    <Content Include="Belgeler\FrontEnd\Css\IllerKuaforListesi\KuaforListesi.css" />
+    <Content Include="Belgeler\FrontEnd\Css\IlSecilenSayfa.css" />
+    <Content Include="Belgeler\FrontEnd\Css\KuaforYorumStar.css" />
+    <Content Include="Belgeler\FrontEnd\Css\KullaniciProfilLink.css" />
+    <Content Include="Belgeler\FrontEnd\Css\LayoutNavbar.css" />
+    <Content Include="Belgeler\FrontEnd\Css\SehirlerListesi.css" />
+    <Content Include="Belgeler\FrontEnd\Css\SiraAl\Checks.css" />
+    <Content Include="Belgeler\FrontEnd\Js\bootstrap.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IlIcerigi.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KuaforDetayRegister1.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KuaforFavorilereEkle.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KuaforKayitOl3.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KuaforKayitOl4.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KuaforMesajGonder.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KuaforMesajGonder1.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KuaforMesajGonder2.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KuaforSahipKayit.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KuaforSahipRegister.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KullaniciGirisYap2.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KullaniciLoginPaneli.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KullaniciProfilAyarlar5.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KullaniciProfilAyarlar6.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KullaniciSiraIptal3.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforDetay\KullaniciSiraIptal4.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforListesi\KuaforAra3.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforListesi\KuaforAra4.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforListesi\KuaforListesi32.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforListesi\KuaforListesi33.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforListesi\KuaforListesi34.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerKuaforListesi\KuaforListesi35.js" />
+    <Content Include="Belgeler\FrontEnd\Js\IllerListesi3.js" />
+    <Content Include="Belgeler\FrontEnd\Js\jquery-3.3.1.js" />
+    <Content Include="Belgeler\FrontEnd\Js\KullaniciYorumYap\KullaniciMesajKutusu.js" />
+    <Content Include="Belgeler\FrontEnd\Js\KullaniciYorumYap\KullaniciMesajKutusu1.js" />
+    <Content Include="Belgeler\FrontEnd\Js\KullaniciYorumYap\YorumStar.js" />
+    <Content Include="Belgeler\FrontEnd\Js\MainPage\KuaforCreate.js" />
+    <Content Include="Belgeler\FrontEnd\Js\MainPage\KuaforCreate1.js" />
+    <Content Include="Belgeler\FrontEnd\Js\MainPage\KuaforKayitLogin.js" />
+    <Content Include="Belgeler\FrontEnd\Js\MainPage\KuaforKayitLogin1.js" />
+    <Content Include="Belgeler\FrontEnd\Js\popper.min.js" />
+    <Content Include="Belgeler\FrontEnd\Js\SiraAl\KuaforElemanSec8.js" />
+    <Content Include="Belgeler\FrontEnd\Js\SiraAl\KuaforSiraAlDate.js" />
+    <Content Include="Belgeler\FrontEnd\Js\SiraAl\KuaforSiraAlSaatAralik.js" />
+    <Content Include="Belgeler\FrontEnd\Js\SiraAl\SecilenCesitler1.js" />
+    <Content Include="Belgeler\ilveilce\ilveilcejs.js" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_0379ad57-da86-446f-b8ad-5113ed87c13f.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_164a2f97-a795-4b5c-9c45-2208bb1ac882.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_16b523f3-a794-489d-a997-a435ab46ed08.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_185257b3-363d-4692-90ed-f347a781ac82.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_1b2520cd-ce7e-4c8c-892e-b8f58d41aa97.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_2e1707e3-90b2-4c8e-aa75-47839ab9e5fa.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_2f5451a1-e484-4348-b03e-e1ae04738237.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_338fcfba-a23b-43ad-93a3-d157f3cd5de1.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_3b5a0ec6-b1f3-4c68-b564-d6bce1b49bb3.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_3be4bd07-3870-41aa-b481-44b71514308f.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_413a836c-438c-4647-be7e-90db68b9f68c.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_4548a535-ba62-40b6-8e1b-8f75f61aa497.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_46f38b75-a174-41d2-8a54-41911aaef8f5.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_471abac7-87db-47f7-ac07-770319d323ac.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_4977d14a-8cae-440d-affa-102caa296200.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_54af3d38-4e48-4345-8cbb-affeb43a5f21.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_585174c2-9900-448f-a83f-fec17b1a1242.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_58e15787-91f8-4508-ad35-1012298b20a3.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_608a3a2c-9db0-4f63-b15e-4afd0c7875c9.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_64b63d18-09d4-4d4d-a26d-f5d8c2b5b875.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_717d8741-b6ed-4858-8d38-861a4073022e.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_772b3886-0d15-4a00-8351-a79cd6198f5a.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_77d3f4db-6ae3-4767-987e-90b1f24fd238.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_792d3d3f-30bb-4858-b54f-e82d5221e70e.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_7bb64712-4fe5-4852-a553-f1597762ec8d.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_802e5579-134c-4519-88fd-65a2cc91f63a.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_851da2ac-05c9-4ee2-b75e-638c1a3ec190.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_87df18b0-6367-4cb3-b43c-41e03e11d569.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_8b730b86-7480-47fd-a6df-e97f5d630420.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_8e538b62-6547-4188-ab22-253ba24e5050.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_97c83489-d305-4032-b930-14f88f21355e.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_9918c55a-fb73-4553-84b3-1e683a24273f.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_a2c523ed-9713-496f-95b2-8a11b0d8e8b1.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_a55ff707-68ad-48fe-9835-2f64f798d705.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_a72684a6-61b0-4f43-aa5b-44ad0c5e34fb.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_a7acd6ba-7e67-4f52-ba1d-8d5f0146cc58.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_ac6dfc71-008a-4eaa-bb69-428b78e2a2c4.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_b002ceff-0ce4-45a8-a578-72ace7679f6b.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_b32c440b-2780-43f9-b93c-23c4b1141106.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_b95a1a62-2f2b-4577-aeff-b8e2308fd7a3.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_c5bc4e69-78dd-41d6-8f76-1b3c8c35bb54.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_cc3c817f-992a-44dd-afb4-9f6834d9de61.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_ce999574-6b09-49c9-b2f6-12cb79e78d0e.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_d097d3bd-1cd7-410b-8020-fac035e571b7.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_d25082e1-d28e-4480-8e72-1336ee08e761.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_d55a16c5-f25b-44d7-93b6-fcb80bfa1d62.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_d9f4e9e3-f464-45f2-927e-a05b8decf8b9.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_e59d2f06-7ac6-4a4c-b562-a2753629c25f.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_e7906b64-9725-4098-a7a7-b0b8fb67e029.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_e7d2ce31-294a-47ec-96ca-08967287ce37.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_e96affe0-0d1f-4286-9b6d-bc1c8197b5b6.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_f1f55a4c-3473-4bde-a52c-70df58329fb1.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_f95388f0-c80c-447d-a74f-d8958a6dd794.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_fcf6b1d3-0d5e-4e1c-90be-81b934302cc9.png" />
+    <Content Include="Belgeler\Images\KuaforImage\blog_ffe82421-c8ff-4c07-8f3e-cc1ca25717d5.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -181,6 +658,82 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Belgeler\BackEnd\pug\blank.pug" />
+    <Content Include="Belgeler\BackEnd\pug\cards.pug" />
+    <Content Include="Belgeler\BackEnd\pug\charts.pug" />
+    <Content Include="Belgeler\BackEnd\pug\forgot-password.pug" />
+    <Content Include="Belgeler\BackEnd\pug\includes\css\core.pug" />
+    <Content Include="Belgeler\BackEnd\pug\includes\css\custom.pug" />
+    <Content Include="Belgeler\BackEnd\pug\includes\footer.pug" />
+    <Content Include="Belgeler\BackEnd\pug\includes\js\core.pug" />
+    <Content Include="Belgeler\BackEnd\pug\includes\js\custom.pug" />
+    <Content Include="Belgeler\BackEnd\pug\includes\modals\logout.pug" />
+    <Content Include="Belgeler\BackEnd\pug\includes\navbar.pug" />
+    <Content Include="Belgeler\BackEnd\pug\includes\scroll-to-top.pug" />
+    <Content Include="Belgeler\BackEnd\pug\index.pug" />
+    <Content Include="Belgeler\BackEnd\pug\login.pug" />
+    <Content Include="Belgeler\BackEnd\pug\navbar.pug" />
+    <Content Include="Belgeler\BackEnd\pug\register.pug" />
+    <Content Include="Belgeler\BackEnd\pug\tables.pug" />
+    <Content Include="Belgeler\BackEnd\scss\navbar\_navbar_colors.scss" />
+    <Content Include="Belgeler\BackEnd\scss\navbar\_navbar_fixed.scss" />
+    <Content Include="Belgeler\BackEnd\scss\navbar\_navbar_global.scss" />
+    <Content Include="Belgeler\BackEnd\scss\navbar\_navbar_static.scss" />
+    <Content Include="Belgeler\BackEnd\scss\navbar\_navbar_toggle.scss" />
+    <Content Include="Belgeler\BackEnd\scss\sb-admin.scss" />
+    <Content Include="Belgeler\BackEnd\scss\_cards.scss" />
+    <Content Include="Belgeler\BackEnd\scss\_footer.scss" />
+    <Content Include="Belgeler\BackEnd\scss\_global.scss" />
+    <Content Include="Belgeler\BackEnd\scss\_login.scss" />
+    <Content Include="Belgeler\BackEnd\scss\_mixins.scss" />
+    <Content Include="Belgeler\BackEnd\scss\_utilities.scss" />
+    <Content Include="Belgeler\BackEnd\scss\_variables.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Belgeler\BackEnd\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\css\font-awesome.css.map" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\animated.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\core.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\fixed-width.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\font-awesome.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\icons.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\larger.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\list.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\mixins.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\path.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\screen-reader.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\stacked.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\less\variables.less" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\_animated.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\_core.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\_icons.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\_larger.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\_list.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\_mixins.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\_path.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\_stacked.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Belgeler\BackEnd\vendor\jquery\jquery.min.map" />
+    <Content Include="Belgeler\BackEnd\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Belgeler\ilveilce\il-bolge.json" />
+    <Content Include="Belgeler\ilveilce\il-ilce-gercek.json" />
+    <Content Include="Belgeler\ilveilce\il-ilce.json" />
+    <None Include="Properties\PublishProfiles\ertkrn.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -201,11 +754,76 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_KuaforDetayBilgiler.cshtml" />
+    <Content Include="Views\Home\_KuaforDetayKullaniciLogin.cshtml" />
+    <Content Include="Views\Home\_KuaforDetayTrasCesitleri.cshtml" />
+    <Content Include="Views\Home\_KuaforDetayYorumlar.cshtml" />
+    <Content Include="Views\Home\_KullaniciProfilAyarlarAvatar.cshtml" />
+    <Content Include="Views\Home\_KullaniciProfilAyarlarDetay.cshtml" />
+    <Content Include="Views\Home\_KullaniciProfilAyarlarim.cshtml" />
+    <Content Include="Views\Home\_KullaniciProfilFavorilerim.cshtml" />
+    <Content Include="Views\Home\_KullaniciProfilProfil.cshtml" />
+    <Content Include="Views\Home\_KullaniciProfilSiralarim.cshtml" />
+    <Content Include="Views\Home\_KullaniciRegister.cshtml" />
+    <Content Include="Views\Home\Iller.cshtml" />
+    <Content Include="Views\Home\KuaforAdminLogin.cshtml" />
+    <Content Include="Views\Home\KuaforDetay.cshtml" />
+    <Content Include="Views\Home\KuaforSiraAl.cshtml" />
+    <Content Include="Views\Home\KullaniciProfil.cshtml" />
+    <Content Include="Views\KuaforAdmin\Index.cshtml" />
+    <Content Include="Views\KuaforAdmin\TrasCesitleri.cshtml" />
+    <Content Include="Views\KuaforAdmin\TrasCesitleriOlustur.cshtml" />
+    <Content Include="Views\KuaforAdmin\TrasCesitleriIncele.cshtml" />
+    <Content Include="Views\KuaforAdmin\CalismaSaatleri.cshtml" />
+    <Content Include="Views\KuaforAdmin\KuaforElemanlari.cshtml" />
+    <Content Include="Views\KuaforAdmin\KuaforElemanEkle.cshtml" />
+    <Content Include="Views\KuaforAdmin\KuaforElemanIncele.cshtml" />
+    <Content Include="Views\KuaforAdmin\Firsatlar.cshtml" />
+    <Content Include="Views\KuaforAdmin\FirsatOlustur.cshtml" />
+    <Content Include="Views\KuaforAdmin\FirsatIncele.cshtml" />
+    <Content Include="Views\KuaforAdmin\Aktiflik.cshtml" />
+    <Content Include="Views\YoneticiAdmin\Index.cshtml" />
+    <Content Include="Views\YoneticiAdmin\Kuaforler.cshtml" />
+    <Content Include="Views\YoneticiAdmin\KuaforEkle.cshtml" />
+    <Content Include="Views\YoneticiAdmin\KuaforIncele.cshtml" />
+    <Content Include="Views\YoneticiAdmin\KuaforSahip.cshtml" />
+    <Content Include="Views\YoneticiAdmin\KuaforSahipEkle.cshtml" />
+    <Content Include="Views\YoneticiAdmin\KuaforSahipIncele.cshtml" />
+    <Content Include="Views\YoneticiAdmin\Anketler.cshtml" />
+    <Content Include="Views\YoneticiAdmin\AnketlerIncele.cshtml" />
+    <Content Include="Views\YoneticiAdmin\AnketOlustur.cshtml" />
+    <Content Include="Views\YoneticiAdmin\Kullanicilar.cshtml" />
+    <Content Include="Views\YoneticiAdmin\KullaniciIncele.cshtml" />
+    <Content Include="Views\YoneticiAdmin\KullaniciOlustur.cshtml" />
+    <Content Include="Views\YoneticiAdmin\Yoneticiler.cshtml" />
+    <Content Include="Views\YoneticiAdmin\YoneticiIncele.cshtml" />
+    <Content Include="Views\YoneticiAdmin\YoneticiOlustur.cshtml" />
+    <Content Include="Views\YoneticiAdmin\FirsatOnay.cshtml" />
+    <Content Include="Views\YoneticiAdmin\FirsatIncele.cshtml" />
+    <Content Include="Views\KuaforAdmin\KuaforSecimi.cshtml" />
+    <Content Include="Views\KuaforAdmin\GelecekSira.cshtml" />
+    <Content Include="Views\KuaforAdmin\GelecekSiraIncele.cshtml" />
+    <Content Include="Views\KuaforAdmin\SiraOlustur.cshtml" />
+    <Content Include="Views\KuaforAdmin\GecmisSira.cshtml" />
+    <Content Include="Views\KuaforAdmin\GecmisSiraIncele.cshtml" />
+    <Content Include="Views\Home\KullaniciCuzdan.cshtml" />
+    <Content Include="Views\Home\_KullaniciCuzdanKontrol.cshtml" />
+    <Content Include="Views\YoneticiAdmin\Gorevler.cshtml" />
+    <Content Include="Views\YoneticiAdmin\GorevlerIncele.cshtml" />
+    <Content Include="Views\YoneticiAdmin\GorevOlustur.cshtml" />
+    <Content Include="Views\Home\_KullaniciSiralarYorumYap.cshtml" />
+    <Content Include="Views\KuaforAdmin\Yorumlar.cshtml" />
+    <Content Include="Views\KuaforAdmin\YorumlarIncele.cshtml" />
+    <Content Include="Views\Home\_KuaforMesajGonder.cshtml" />
+    <Content Include="Views\KuaforAdmin\OkunmamisMesajlar.cshtml" />
+    <Content Include="Views\Home\_KullaniciProfilMesajlarim.cshtml" />
+    <Content Include="Views\Home\YoneticiAdminLogin.cshtml" />
+    <Content Include="Views\Home\_KuaforAdminUyeligi.cshtml" />
+    <Content Include="Views\Home\_KuaforAdminlikBasvurusu.cshtml" />
+    <Content Include="Views\Home\_KuaforBasvurusu.cshtml" />
+    <Content Include="Views\Home\_KuaforLoginKayit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -223,6 +841,101 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201811231620397_Tablolar.resx">
+      <DependentUpon>201811231620397_Tablolar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811241841582_KuaforTrasCesitleri_KuaforId.resx">
+      <DependentUpon>201811241841582_KuaforTrasCesitleri_KuaforId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811260808068_KuaforSahipteCagirma.resx">
+      <DependentUpon>201811260808068_KuaforSahipteCagirma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811260812008_KuaforSahipTablosuVirtualEkleme.resx">
+      <DependentUpon>201811260812008_KuaforSahipTablosuVirtualEkleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811260813458_SilDenemesi.resx">
+      <DependentUpon>201811260813458_SilDenemesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811260820034_SilDenemesi-force.resx">
+      <DependentUpon>201811260820034_SilDenemesi-force.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811260822507_ForeignKeyEskiHali.resx">
+      <DependentUpon>201811260822507_ForeignKeyEskiHali.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811260824188_SilTablosuSilindi.resx">
+      <DependentUpon>201811260824188_SilTablosuSilindi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811260835323_Sil1Eklendi2.resx">
+      <DependentUpon>201811260835323_Sil1Eklendi2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811260837574_Sil1Silindi.resx">
+      <DependentUpon>201811260837574_Sil1Silindi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811260847391_SonDegisiklikKuaforler.resx">
+      <DependentUpon>201811260847391_SonDegisiklikKuaforler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811262005335_KuaforSahiptenSildim.resx">
+      <DependentUpon>201811262005335_KuaforSahiptenSildim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811262021380_KuaforElemanlariGuncellendi.resx">
+      <DependentUpon>201811262021380_KuaforElemanlariGuncellendi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811262029091_KuaforTrasSaatiAralikGuncellendi.resx">
+      <DependentUpon>201811262029091_KuaforTrasSaatiAralikGuncellendi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811262036044_KuaforTrasSaatiAralikGuncellendi1.resx">
+      <DependentUpon>201811262036044_KuaforTrasSaatiAralikGuncellendi1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811272141288_VeriTabaniForeignKey.resx">
+      <DependentUpon>201811272141288_VeriTabaniForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811291456067_KuaforSiraSaatAraligiBirlesti.resx">
+      <DependentUpon>201811291456067_KuaforSiraSaatAraligiBirlesti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811291508301_KuaforSiraTarihToString.resx">
+      <DependentUpon>201811291508301_KuaforSiraTarihToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811300823224_RegisterListDuzenlendi.resx">
+      <DependentUpon>201811300823224_RegisterListDuzenlendi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811301217024_KuaforSiraDurumEklendi.resx">
+      <DependentUpon>201811301217024_KuaforSiraDurumEklendi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812051907228_GorevlerTablosu.resx">
+      <DependentUpon>201812051907228_GorevlerTablosu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812052220524_GorevlerTablosuBasariPuaniEklendi.resx">
+      <DependentUpon>201812052220524_GorevlerTablosuBasariPuaniEklendi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812061318230_GorevDurumTablosuEklendi.resx">
+      <DependentUpon>201812061318230_GorevDurumTablosuEklendi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812062229404_GorevlerveGorevDurumTablosuSilindi.resx">
+      <DependentUpon>201812062229404_GorevlerveGorevDurumTablosuSilindi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812140917422_KuaforSiraTamamlanmaDurumuColumn.resx">
+      <DependentUpon>201812140917422_KuaforSiraTamamlanmaDurumuColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812201358111_KuaforMesajTablosunaKullaniciIdiForeignKey.resx">
+      <DependentUpon>201812201358111_KuaforMesajTablosunaKullaniciIdiForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812201708315_KuaforMesajDurumlarEklendi.resx">
+      <DependentUpon>201812201708315_KuaforMesajDurumlarEklendi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812201733236_KullaniciMesajTablosuKullanıcıYöneticiBOOLEklendi.resx">
+      <DependentUpon>201812201733236_KullaniciMesajTablosuKullanıcıYöneticiBOOLEklendi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901070958121_KullanicilarTableRemoveColumnDogumTarihi.resx">
+      <DependentUpon>201901070958121_KullanicilarTableRemoveColumnDogumTarihi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901071637346_KuaforSahipDeleteDogumTarihiColumn.resx">
+      <DependentUpon>201901071637346_KuaforSahipDeleteDogumTarihiColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901080921021_KuaforlerTableKuaforSahipIdNotRequired.resx">
+      <DependentUpon>201901080921021_KuaforlerTableKuaforSahipIdNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

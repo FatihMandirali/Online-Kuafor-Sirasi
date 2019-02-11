@@ -1,0 +1,190 @@
+﻿
+@{
+    ViewBag.Title = "KuaforIncele";
+    Layout = "~/Views/YoneticiAdmin/Index.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Detaylar</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2" ng-controller="kuaforguncelle">
+
+        <hr />
+
+        <img src="~/Belgeler/Images/KuaforImage/{{kuaforgun.Resim}}" class="img-circle" width="128" height="128" />
+
+        <input type="hidden" class="name5" value="{{kuaforgun.Resim}}" />
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Ad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Ad" value="{{kuaforgun.Ad}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Şehir", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="Sehir" id="Sehir" class="form-control">
+                    <option value="{{kuaforgun.Sehir}}">{{kuaforgun.Sehir}}</option>
+                </select>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Semt", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <select name="Semt" id="Semt" class="form-control" disabled="disabled">
+                    <option value="{{kuaforgun.Semt}}">{{kuaforgun.Semt}}</option>
+                </select>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Adres", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Adres" value="{{kuaforgun.Adres}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Açılış Saati", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="time" class="form-control AcilmaSaati" value="{{kuaforgun.AcilmaSaati}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Kapanış Saati", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="time" class="form-control KapanmaSaati" value="{{kuaforgun.KapanmaSaati}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Tahmini Traş Süresi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="number" class="form-control Aralik" value="{{kuaforgun.Aralik}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("EMail", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control EMail" value="{{kuaforgun.EMail}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Telefon", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Telefon" value="{{kuaforgun.Telefon}}" />
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Eklenme Tarihi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control EklenmeTarihi" value="{{kuaforgun.EklenmeTarihi}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Bay/Bayan", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="BayBayan" id="BayBayan" class="form-control BayBayan">
+
+                    <option value="1">Bay</option>
+                    <option value="2">Bayan</option>
+                </select>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Puan", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Puan" value="{{kuaforgun.Puan}}" />
+
+            </div>
+        </div>
+        <input type="hidden" class="dd" value="{{kuaforgun.Id}}" />
+
+        @* <div class="form-group">
+            <input type="text" id="name2"  />
+            @Html.Label("Kuaför Sahibi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <!--Bir tane çektiğimiz için bi1rr tane kuaför sahibi geliyor....-->
+                <input type="text" class="form-control Puan" value="{{kuaforgun.KuaforSahipId.Ad}}" />
+                <select name="Resim" id="Resim" class="form-control">
+                    <option value="{{kuaforgun.KuaforSahipId.Tc}}">{{kuaforgun.KuaforSahipId.Ad}}</option>
+
+                </select>
+
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <button type="button" id="btnyorumyap" class="btn btn-success">
+                <span class="glyphicon glyphicon-floppy-disk"></span>Güncelle
+            </button>
+            @*@Html.ActionLink("Listeye Dön", "Index", "Hizmetliler", null, new { @class = "btn btn-default" })*@
+
+            <a href="/BackEnd/Kuaforler/" class="btn btn-default">
+                Listeye Dön
+            </a>
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

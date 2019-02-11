@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Firsatlar";
+    Layout = "~/Views/KuaforAdmin/Index.cshtml";
+}
+
+@if (@Session["kuaforsecim"] == null)
+{
+    <input type="hidden" id="sessiondeger" value="@Session["yoneticiYonet"]" />
+    <div class="bg-success p-3 col-md-12">
+        <div class="row">
+            <div class="col-md-8">
+                <b style="color:white">@Session["yoneticiYonetKuaforAd"]</b>&nbsp;&nbsp; Kuaforuna Bağlanıldı.
+            </div>
+            <div class="col-md-4">
+                <a href="/YoneticiAdmin/Kuaforler"><b class="pull-right mr-3 text-danger" style="cursor:default" id="btnYoneticiAdmin">Yönetici Admin</b></a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <input type="hidden" id="sessiondeger" value="@Session["kuaforsecim"]" />
+}
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Fırsatlar
+        <a href="/KuaforAdmin/FirsatOlustur" class="btn btn-success btn-sm pull-right">Oluştur</a>
+    </div>
+    <div class="card-body" ng-app="MyAppFirsat">
+        <div class="table-responsive" ng-controller="firsatlar">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Fırsat İçerik</th>
+                        <th>Fırsat Yayın Tarihi</th>
+                        <th>Sil</th>
+                        <th>İncele</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Fırsat İçerik</th>
+                        <th>Fırsat Yayın Tarihi</th>
+                        <th>Sil</th>
+                        <th>İncele</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr ng-repeat="x in firsat" ng-if="x.YoneticiOnayi==3" class="bg-primary">
+
+                        <td>{{x.FirsatIcerik}}</td>
+                        <td>{{x.FirsatYayinTarih}}</td>
+                        <td><a href="/KuaforAdmin/FirsatIncele/{{x.Id}}" class="btn btn-primary">İncele</a> </td>
+                        <td><input type="button" name="{{x.Id}}" class="btn btn-danger firsatsil" id="firsatsil" value="Sil" /></td>
+
+                    </tr>
+                    <tr ng-repeat="x in firsat" ng-if="x.YoneticiOnayi==2" class="bg-success">
+
+                        <td>{{x.FirsatIcerik}}</td>
+                        <td>{{x.FirsatYayinTarih}}</td>
+                        <td><a href="/KuaforAdmin/FirsatIncele/{{x.Id}}" class="btn btn-primary">İncele</a> </td>
+                        <td><input type="button" name="{{x.Id}}" class="btn btn-danger firsatsil" id="firsatsil" value="Sil" /></td>
+
+                    </tr>
+                    <tr ng-repeat="x in firsat" ng-if="x.YoneticiOnayi==0" class="bg-danger">
+
+                        <td>{{x.FirsatIcerik}}</td>
+                        <td>{{x.FirsatYayinTarih}}</td>
+                        <td><a href="/KuaforAdmin/FirsatIncele/{{x.Id}}" class="btn btn-primary">İncele</a> </td>
+                        <td><input type="button" name="{{x.Id}}" class="btn btn-danger firsatsil" id="firsatsil" value="Sil" /></td>
+
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+

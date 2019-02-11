@@ -1,0 +1,26 @@
+﻿.kuaforler{
+     border:1px rgba(0,0,0,.5) solid  !important;
+     padding-bottom:10px;
+     padding-top:10px;
+}
+
+
+
+.puan{
+    color:white;
+    border:2px #1886c7 solid  !important;
+    font-size:30px;
+    padding-left:15px;
+    padding-right:15px;
+    margin-left:15px;
+}
+
+#kuaforadiA{
+    text-decoration:none !important;
+    color:black;
+}
+
+#kuaforadiA:hover{
+   
+    color:#1886c7;
+}

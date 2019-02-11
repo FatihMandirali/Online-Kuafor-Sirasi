@@ -1,0 +1,52 @@
+﻿
+<div class="modal kuaforYonetimUyelik" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+        <!--Content-->
+        <div class="modal-content">
+
+
+
+
+            <div class="container">
+                <div class="pricing card-deck flex-column flex-md-row mb-3 mt-3">
+                    <div class="card card-pricing text-center px-3 mb-4">
+                        <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white shadow-sm" id="trascesitbaslik">Kuafor Adminlik Başvurusu</span>
+
+                        <div class="card-body pt-0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        Sistemimizde kuaforünüz yok ise ilk adım olarak Kuafor Adminlik Başvurusu yapmanız gerekmektedir. Böylece adminlik hesabınız açılmış olacaktır.Sonraki adım ise kuaför başvurusu yaparak kuaförünüzü Online pazarın açmaktır.
+                                    </div>
+                                </div>
+                                <input type="button" class="btn btn-outline-primary mt-3 col-md-12" value="Kuafor Adminlik Başvurusu" data-toggle="modal" data-target=".kuaforAdminlikBasvuru"><br />
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing card-deck flex-column flex-md-row mb-3">
+                    <div class="card card-pricing text-center px-3 mb-4">
+                        <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white shadow-sm" id="trascesitbaslik">Kuafor Başvurusu</span>
+
+                        <div class="card-body pt-0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        Sistemimizde zaten kuaförünüz var ve bir başka kuaförünüz için hesap açmak istiyorsanız yeni bir admin açmanıza gerek yoktur. Direkt olarak Kuaför başvurusu yaparak kuaförünüzü Online Sıraya aktif etmiş olursunuz.
+                                    </div>
+                                </div>
+                                <input type="button" class="btn btn-outline-success mt-3 col-md-12" value="Kuafor Başvurusu" data-toggle="modal" data-target=".kuaforBasvuru1" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("_KuaforBasvurusu")
+@Html.Partial("_KuaforAdminlikBasvurusu")

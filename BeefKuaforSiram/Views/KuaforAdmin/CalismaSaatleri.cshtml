@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "CalismaSaatleri";
+    Layout = "~/Views/KuaforAdmin/Index.cshtml";
+}
+@if (@Session["kuaforsecim"] == null)
+{
+    <input type="hidden" id="sessiondeger" value="@Session["yoneticiYonet"]" />
+    <div class="bg-success p-3 col-md-12">
+        <div class="row">
+            <div class="col-md-8">
+                <b style="color:white">@Session["yoneticiYonetKuaforAd"]</b>&nbsp;&nbsp; Kuaforuna Bağlanıldı.
+            </div>
+            <div class="col-md-4">
+                <a href="/YoneticiAdmin/Kuaforler"><b class="pull-right mr-3 text-danger" style="cursor:default" id="btnYoneticiAdmin">Yönetici Admin</b></a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <input type="hidden" id="sessiondeger" value="@Session["kuaforsecim"]" />
+}
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Detaylar</h2>
+    </div>
+</div>
+<div class="row" ng-app="MyAppSaat">
+    <div class="col-md-8 col-md-offset-2" ng-controller="saatler">
+
+        <hr />
+
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Açılış Saati", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="time" class="form-control Acilis" value="{{saat.AcilmaSaati}}" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Kapanış Saati", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="time" class="form-control Kapanis" value="{{saat.KapanmaSaati}}" />
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Ortalama Vakit (*Önerilen Traş Aralığı 30 dk)", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="number" class="form-control Aralik" value="{{saat.Aralik}}" />
+
+            </div>
+        </div>
+
+        <input type="hidden" class="dd" value="{{saat.Id}}" />
+
+        <div class="form-group">
+            <button type="button" id="calismasaatiguncelle" class="btn btn-success">
+                <span class="glyphicon glyphicon-floppy-disk"></span>Güncelle
+            </button>
+            @*@Html.ActionLink("Listeye Dön", "Index", "Hizmetliler", null, new { @class = "btn btn-default" })*@
+
+
+
+        </div>
+    </div>
+
+
+</div>
+

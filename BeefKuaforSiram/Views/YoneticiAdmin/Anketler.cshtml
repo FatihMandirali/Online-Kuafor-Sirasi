@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Anketler";
+    Layout = "~/Views/YoneticiAdmin/Index.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Alınmış Sıralar
+        <a href="/YoneticiAdmin/KuaforEkle" class="btn btn-success btn-sm pull-right">Oluştur</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive" ng-controller="anketler">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Soru</th>
+                        <th>Cevap A</th>
+                        <th>Cevap B</th>
+                        <th>Cevap C</th>
+                        <th>Cevap D</th>
+                        <th>Sil</th>
+                        <th>İncele</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Soru</th>
+                        <th>Cevap A</th>
+                        <th>Cevap B</th>
+                        <th>Cevap C</th>
+                        <th>Cevap D</th>
+                        <th>Sil</th>
+                        <th>İncele</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr ng-repeat="x in anket">
+                        <td>{{x.Soru}}</td>
+                        <td>{{x.CevapA}}</td>
+                        <td>{{x.CevapB}}</td>
+                        <td>{{x.CevapC}}</td>
+                        <td>{{x.CevapD}}</td>
+                        <td><a href="/YoneticiAdmin/AnketlerIncele/{{x.Id}}" class="btn btn-primary">İncele</a> </td>
+                        <td><input type="button" name="{{x.Id}}" class="btn btn-danger anketsil" id="anketsil" value="Sil" /></td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+
+

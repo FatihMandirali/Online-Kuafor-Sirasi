@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "KuaforDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#nvbCollapse">
+            <span class="navbar-toggler-icon"> </span>
+        </button>
+        <a href="#" class="navbar-brand">Kuaför Sırası</a>
+        <div class="collapse navbar-collapse" id="nvbCollapse">
+            <div class=" ml-5 col-md-3">
+
+            </div>
+            <div class=" ml-2 col-md-5">
+
+
+            </div>
+          
+            <a href="#" class="btn btn-sm ml-2 navbarblog" data-toggle="modal" data-target=".login-register-form">Kullanıcı Üyeliği</a>
+            <a href="#" class="btn btn-sm ml-2 navbarblog" data-toggle="modal" data-target=".kuaforYonetimUyelik">Kuaför Üyeliği</a>
+            
+
+        </div>
+    </div>
+</nav>
+
+
+<div style="margin-top:100px !important;"></div>
+
+<div class="col-md-12">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                @Html.Partial("_KuaforDetayKullaniciLogin")
+            </div>
+            <div class="col-md-9 ">
+                <div class="col-md-12 kuaforler" ng-controller="kuafordetaysayfagenelbilgi">
+                    <div class="row">
+                        <div class="col-md-3 text-center" style="border-right:2px solid rgba(0,0,0,.7)">
+                            <b class="mx-auto">Kuaför Puanlar</b>
+                            <div class="p-3  text-center" style="background-color:rgba(0,0,0,.7); color:white;">
+                                {{kuadetaybilgileri.puan}}
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-3 text-center" style="border-right:2px solid rgba(0,0,0,.7)">
+                            <b class="mx-auto">Çalışma Saatleri</b><br />
+                            <i>{{kuadetaybilgileri.calismaSaati}}</i>
+
+                        </div>
+                        <div class="col-md-3 text-center" style="border-right:2px solid rgba(0,0,0,.7)">
+                            <b class="mx-auto">Resim</b><br />
+                            <img src="~/Belgeler/Images/KuaforImage/{{kuadetaybilgileri.resim}}" class="bg-danger" width="70" height="50" />
+
+                        </div>
+                        <div class="col-md-3 text-center my-auto">
+                            <a href="/Home/KuaforSiraAl/{{kuadetaybilgileri.kuaforSlug}}" class="btn col-md-12" style="background-color:rgba(0,0,0,.7)">Sıra Al</a>
+
+                        </div>
+                    </div>
+                </div><br />
+                <div class="col-md-12">
+
+                </div>
+
+                <div class="col-md-12 kuaforler" ng-controller="kuafordetaysayfasi">
+                    <!--   traş çeşitleri , bilgiler , yorumlar
+                        Şimdi Kaldığım Yer Butonlara Tıklayınca Sadece Birtanesi Aktif Olsun
+                        -->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <a class="btn col-md-3 bg-danger mr-2" id="trascesitbaslik" ng-click="trascesit()">
+                                Traş Çeşitleri
+                            </a>
+                            <a class="btn col-md-2 bg-danger mr-2" id="trascesitbaslik" ng-click="kubilgiler()">
+                                Bilgiler
+                            </a>
+                            <a class="btn col-md-2 bg-danger mr-2" id="trascesitbaslik" ng-click="kuyor()">
+                                Yorumlar
+                            </a>
+                            <a class="btn col-md-2 bg-danger mr-2" id="trascesitbaslik" data-toggle="modal" data-target=".msjGonder">
+                                Mesaj Gönder
+                            </a>
+                            <a class="btn col-md-2 bg-danger favorilereEkle" id="trascesitbaslik">
+                                Favorilere Ekle
+                            </a>
+                        </div><hr />
+                        @Html.Partial("_KuaforDetayTrasCesitleri")
+                        @Html.Partial("_KuaforDetayBilgiler")
+                        @Html.Partial("_KuaforDetayYorumlar")
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+@Html.Partial("_KullaniciRegister")
+@Html.Partial("_KuaforMesajGonder")
+@Html.Partial("_KuaforAdminUyeligi")
+
+
+
+
+

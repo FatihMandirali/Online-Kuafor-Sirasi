@@ -1,0 +1,60 @@
+﻿<!--Modal: Login / Register Form-->
+<div class="modal kullaniciprofilavatar" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+        <!--Content-->
+        <div class="modal-content">
+
+            <!--Modal cascading tabs-->
+            <div class="modal-c-tabs">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+
+                    <li class="nav-item">
+                        <p class="nav-link" data-toggle="tab" href="#panel8" role="tab">
+                            <i class="fa fa-user-plus mr-1"></i>
+                            Avatarlar
+                        </p>
+                    </li>
+                </ul>
+
+                <!-- Tab panels -->
+                <div class="tab-content">
+                    <!--Panel 7-->
+                    <!--/.Panel 7-->
+                    <!--Panel 8-->
+                    <div class="tab-pane active" id="panel8" role="tabpanel">
+
+                        <!--Body-->
+                        <div class="modal-body" ng-controller="_kullaniciprofilayarlarim">
+                            <div class="row">
+
+                                @for (int i = 1; i <= 48; i++)
+                                {
+                                    <div class="col-md-4">
+                                        @{
+                                            string avatarImage = "avatar" + i + ".png";
+                                        }
+                                        <img src="~/Belgeler/Avatarlar/@avatarImage" name="@avatarImage" id="avatarImg" />
+                                    </div>
+                                }
+
+                                <!--Avatara tıklayınca resimi ayarlara getir-->
+                            </div>
+
+                        </div>
+                        <!--Footer-->
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Kapat</button>
+                        </div>
+                    </div>
+                    <!--/.Panel 8-->
+                </div>
+
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!--Modal: Login / Register Form-->

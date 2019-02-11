@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Iller";
+}
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#nvbCollapse">
+            <span class="navbar-toggler-icon"> </span>
+        </button>
+        <a href="#" class="navbar-brand">Kuaför Sırası</a>
+        <div class="collapse navbar-collapse" id="nvbCollapse">
+            <div class=" ml-5 col-md-3">
+                <select name="ilce" id="ilce" class="form-control">
+                    <option value="">İlçe Seçin...</option>
+                </select>
+            </div>
+            <div class=" ml-2 col-md-3">
+                <select name="cinsiyet" id="cinsiyet" class="form-control">
+                    <option value="1">Bay</option>
+                    <option value="2">Bayan</option>
+                </select>
+
+            </div>
+            <input type="button" class="btn  btn-outline-success" id="btnara" value="Ara" />
+          
+            <a href="#" class="btn btn-sm ml-2 navbarblog" data-toggle="modal" data-target=".login-register-form">Kullanıcı Üyeliği</a>
+            <a href="#" class="btn btn-sm ml-2 navbarblog" data-toggle="modal" data-target=".kuaforYonetimUyelik">Kuaför Üyeliği</a>
+            
+
+        </div>
+    </div>
+</nav>
+
+<div style="margin-top:100px !important;"></div>
+<input type="hidden" id="gelenad" value="@TempData["sehirad"]" />
+
+<!------------------------------------------------------------------------------>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+
+            @Html.Partial("_KuaforDetayKullaniciLogin")
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-12">
+                <h5><b>Kuaförünüzü seçin ve sıranızı kapın. İster online ister kuaförde ödeme imkanı!!!</b></h5>
+                <p>İstediğiniz kuaförde istediğiniz zamanda sıranızı alarak kuaförde bekleme zahmetinden kurtulun. Ayrıca gittiğiniz kuaförü puanlayarak diğer müşterilerinde bu puan doğrultusunda hareket etmesini sağlayabilirsiniz. Ödeme seçenekleini ise online veya sıranıza gittiğinizde ödeyerek işleminizi tamamlayabilirsiniz.</p>
+
+                <br />
+                <div class="hvrbox1" ng-controller="kuaforlerlistesi">
+                    <div class="kuaforler mt-2 hvrbox" id="kuaforttt" ng-repeat="x in kuaforler">
+
+
+                        <a class="float-left puan">{{x.Puan}}</a>
+
+                        <b style="margin-left:20px;"><a href="/Home/Iller" id="kuaforadiA">{{x.Ad}}</a></b>
+                        <br />
+                        <i style="margin-left:20px;">
+                            {{x.Adres}}
+                        </i>
+                        <div class="hvrbox-layer_top">
+                            <div class="hvrbox-text">
+                                <a href="/Home/KuaforSiraAl/{{x.Slug}}" style="text-decoration:none; color:#1886c7">Sıra Al</a><br />
+                                <a href="/Home/KuaforDetay/{{x.Slug}}" style="text-decoration:none; color:white">Detay</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 bg-white">
+            <h4 class="text-center mt-2">Fırsatlar</h4>
+            <div class="kuaforfirsat" style="cursor:default" ng-controller="kuaforfirsat">
+                <ul>
+                    <li ng-repeat="x in kuafir" ng-if="x.yoneticiOnay==2">
+                        <b>{{x.kuaforAdi}}</b><br />
+                        {{x.firsat}}
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@Html.Partial("_KullaniciRegister")
+@Html.Partial("_KuaforAdminUyeligi")

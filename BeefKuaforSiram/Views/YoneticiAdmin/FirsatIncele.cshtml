@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "FirsatIncele";
+    Layout = "~/Views/YoneticiAdmin/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Detaylar</h2>
+    </div>
+</div>
+<div class="row" ng-app="MyAppFirsat">
+    <div class="col-md-8 col-md-offset-2" ng-controller="firsatincele">
+
+        <hr />
+
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Fırsat İçeriği", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+
+                <textarea disabled class="form-control FirsatIcerik" rows="10">{{firsati.firsatAdi}}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Fırsat Yayın Tarihi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="datetime" disabled class="form-control FirsatYayinTarih" value="{{firsati.tarih}}" />
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Kuaför Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" disabled class="form-control Kuaforadi" value="{{firsati.kuaforAdi}}" />
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Kuaför Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" disabled class="form-control Kuaforadi" value="{{firsati.sehir}}" />
+
+
+            </div>
+        </div>
+
+
+
+        <input type="hidden" class="dd" value="{{firsati.id}}" />
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            <button type="button" id="firsataktiflestir" class="btn btn-success">
+                <span class="glyphicon glyphicon-floppy-disk"></span>Aktifleştir
+            </button>
+            <button type="button" id="firsataktifligikaldir" class="btn btn-danger">
+                <span class="glyphicon glyphicon-floppy-disk"></span>Aktifliği Kaldır
+            </button>
+            @*@Html.ActionLink("Listeye Dön", "Index", "Hizmetliler", null, new { @class = "btn btn-default" })*@
+
+            <a href="/YoneticiAdmin/FirsatOnay/" class="btn btn-default">
+                Listeye Dön
+            </a>
+
+        </div>
+    </div>
+
+
+</div>
+

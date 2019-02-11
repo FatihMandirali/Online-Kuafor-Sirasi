@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SB Admin - Start Bootstrap Template</title>
+    <!-- Bootstrap core CSS-->
+    <link href="~/Belgeler/BackEnd/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="~/Belgeler/BackEnd/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template-->
+    <link href="~/Belgeler/BackEnd/css/sb-admin.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+</head>
+<body class="bg-dark">
+    <input type="hidden" id="sessiondeger" value="@Session["kuaforsahip"]" />
+    <div class="container">
+        <div class="card card-login mx-auto mt-5">
+            <div class="card-header text-center">Kuaför Seçimi</div>
+            <div class="card-body" ng-app="kuaorAdminKuaforSecimi" ng-controller="secilecekKuaforler">
+
+                <div class="row" ng-repeat="x in kuaforsecim">
+                    <div class="col-md-12 text-center">
+                        <b class="mx-auto" id="kuaforsec" style="cursor:default;color:brown" name="{{x.id}}">{{x.kuaforAdi}}</b><br />
+                        <i>{{x.kuaforAdres}}</i>
+                        <hr />
+                    </div>
+                </div>
+                @*<div class="text-center"><b id="yeniBirBasvuru">Yeni Bir Kuafor Başvurusunda Bulun.</b></div>*@
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Belgeler/BackEnd/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Belgeler/BackEnd/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="~/Belgeler/BackEnd/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/Belgeler/BackEnd/KuaforAdmin/Js/KuaforSecimiAngular.js"></script>
+    <script src="~/Belgeler/BackEnd/KuaforAdmin/Js/KuaforSecimSession.js"></script>
+</body>
+</html>
+

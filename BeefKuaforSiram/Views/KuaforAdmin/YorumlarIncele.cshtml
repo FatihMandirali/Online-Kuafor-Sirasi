@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "YorumlarIncele";
+    Layout = "~/Views/KuaforAdmin/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Detaylar</h2>
+    </div>
+</div>
+<div class="row" ng-app="MyAppYorumlar">
+    <div class="col-md-8 col-md-offset-2" ng-controller="yorumlarIncele">
+
+        <hr />
+
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Kullanıcı Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control kullaniciAdi" value="{{yorumlarIncele.kullaniciAdi}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Yorum", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control yorum" value="{{yorumlarIncele.yorum}}" />
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Hız Puan", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control hizPuan" value="{{yorumlarIncele.hizPuan}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Özen Puan", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control ozenPuan" value="{{yorumlarIncele.ozenPuan}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Kalite Puan", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control kalitePuan" value="{{yorumlarIncele.kalitePuan}}" />
+
+            </div>
+        </div>
+        <div class="form-group">
+          
+            <a href="/KuaforAdmin/Yorumlar" class="btn btn-default">
+                Listeye Dön
+            </a>
+
+        </div>
+    </div>
+
+
+</div>
+

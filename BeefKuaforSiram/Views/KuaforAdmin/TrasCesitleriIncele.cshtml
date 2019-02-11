@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "TrasCesitleriIncele";
+    Layout = "~/Views/KuaforAdmin/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Detaylar</h2>
+    </div>
+</div>
+<div class="row" ng-app="MyApp12">
+    <div class="col-md-8 col-md-offset-2" ng-controller="trascesitleriincele">
+
+        <hr />
+
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Çeşit", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Cesit" value="{{trascesit.Cesit}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Fiyat", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control Fiyat" value="{{trascesit.Fiyat}}" />
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("DK", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Dk" value="{{trascesit.Dk}}" />
+
+            </div>
+        </div>
+
+
+
+
+
+        <input type="hidden" class="dd" value="{{trascesit.Id}}" />
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            <button type="button" id="trascesitguncelle" class="btn btn-success">
+                <span class="glyphicon glyphicon-floppy-disk"></span>Güncelle
+            </button>
+            @*@Html.ActionLink("Listeye Dön", "Index", "Hizmetliler", null, new { @class = "btn btn-default" })*@
+
+            <a href="/BackEnd/Blog/" class="btn btn-default">
+                Listeye Dön
+            </a>
+
+        </div>
+    </div>
+
+
+</div>

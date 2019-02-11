@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "SiraOlustur";
+    Layout = "~/Views/KuaforAdmin/Index.cshtml";
+}
+@if (@Session["kuaforsecim"] == null)
+{
+    <input type="hidden" id="sessiondeger" value="@Session["yoneticiYonet"]" />
+    <div class="bg-success p-3 col-md-12">
+        <div class="row">
+            <div class="col-md-8">
+                <b style="color:white">@Session["yoneticiYonetKuaforAd"]</b>&nbsp;&nbsp; Kuaforuna Bağlanıldı.
+            </div>
+            <div class="col-md-4">
+                <a href="/YoneticiAdmin/Kuaforler"><b class="pull-right mr-3 text-danger" style="cursor:default" id="btnYoneticiAdmin">Yönetici Admin</b></a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <input type="hidden" id="sessiondeger" value="@Session["kuaforsecim"]" />
+}
+<div class="container" ng-app="MyAppGelecekSira">
+    <div class="card text-center">
+        <div class="card-header">
+            Traş Elemanları
+        </div>
+        <div class="row" ng-controller="hizliSiraAlmaEleman">
+            <div class="col-md-6 searchable-container" ng-repeat="x in hzlSiraEleman">
+                <div class="items">
+                    <div class="info-block block-info clearfix">
+                        <div class="square-box pull-left">
+                            <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
+                        </div>
+                        <div data-toggle="buttons" name="{{x.Id}}" id="rdKHizliSiraElemanlar" class="btn-group bizmoduleselect">
+                            <label class="btn btn-default" name="{{x.Id}}" id="kuaforSiraElemanSecimi">
+                                <input type="radio" name="kuaforelemanlari" value="{{x.Id}}" autocomplete="off"><br />
+                                <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+                                <b>Ad : </b>{{x.Adi}}<br />
+                                <b>Soyad : </b>{{x.Soyadi}}<br />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br />
+        <div class="card text-center">
+            <div class="card-header">
+                Traş Saatleri
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <b> Tarihi Seç : </b><input type="date" id="kuaforTarihAralik" value="" /> <hr />
+                    <div class="row" id='siraAlAralik'>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div><br />
+
+
+
+        @*Hızlı Sıra Almada Kaldım kullanıcı elemanı ve saati seçecek sadece*@
+    </div>
+
+
+
+
+
+
+    <input type="button" id="btnHizliSira" class="form-control btn btn-success" value="Sıranı Al" />
+</div>
+

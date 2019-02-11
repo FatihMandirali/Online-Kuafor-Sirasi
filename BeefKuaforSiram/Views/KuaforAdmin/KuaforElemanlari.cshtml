@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "KuaforElemanlari";
+    Layout = "~/Views/KuaforAdmin/Index.cshtml";
+}
+@if (@Session["kuaforsecim"] == null)
+{
+    <input type="hidden" id="sessiondeger" value="@Session["yoneticiYonet"]" />
+    <div class="bg-success p-3 col-md-12">
+        <div class="row">
+            <div class="col-md-8">
+                <b style="color:white">@Session["yoneticiYonetKuaforAd"]</b>&nbsp;&nbsp; Kuaforuna Bağlanıldı.
+            </div>
+            <div class="col-md-4">
+                <a href="/YoneticiAdmin/Kuaforler"><b class="pull-right mr-3 text-danger" style="cursor:default" id="btnYoneticiAdmin">Yönetici Admin</b></a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <input type="hidden" id="sessiondeger" value="@Session["kuaforsecim"]" />
+}
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Kuaför Elemanları
+        <a href="/KuaforAdmin/KuaforElemanEkle" class="btn btn-success btn-sm pull-right">Oluştur</a>
+    </div>
+    <div class="card-body" ng-app="MyAppEleman">
+        <div class="table-responsive" ng-controller="kuaforelemanlar">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>E-Mail</th>
+                        <th>Telefon</th>
+                        <th>Tc</th>
+                        <th>İncele</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>E-Mail</th>
+                        <th>Telefon</th>
+                        <th>Tc</th>
+                        <th>İncele</th>
+                        <th>Sil</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr ng-repeat="x in eleman">
+                        <td>{{x.Adi}}</td>
+                        <td>{{x.Soyadi}}</td>
+                        <td>{{x.Mail}}</td>
+                        <td>{{x.Telefon}}</td>
+                        <td>{{x.Tc}}</td>
+                        <td><a href="/KuaforAdmin/KuaforElemanIncele/{{x.Id}}" class="btn btn-primary">İncele</a> </td>
+                        <td><input type="button" name="{{x.Id}}" class="btn btn-danger kuaforelemansil" id="kuaforelemansil" value="Sil" /></td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+
+

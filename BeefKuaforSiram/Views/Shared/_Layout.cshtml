@@ -1,42 +1,69 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>Kuaför Sırası - Online Kuaför Sırası</title>
+    <!-- Sayfa Tagları -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Belgeler/FrontEnd/Css/bootstrap.css">
+
+    <!-- LayoutNavbar CSS -->
+    <link href="~/Belgeler/FrontEnd/Css/LayoutNavbar.css" rel="stylesheet" />
+    <!-- SehirlerListesi CSS -->
+    <link href="~/Belgeler/FrontEnd/Css/SehirlerListesi.css" rel="stylesheet" />
+    <link href="~/Belgeler/FrontEnd/Css/IlSecilenSayfa.css" rel="stylesheet" />
+    <link href="~/Belgeler/FrontEnd/Css/IllerKuaforListesi/KuaforListesi.css" rel="stylesheet" />
+    <link href="~/Belgeler/FrontEnd/Css/IllerKuaforListesi/carstok.css" rel="stylesheet" />
+    <link href="~/Belgeler/FrontEnd/Css/IllerKuaforListesi/kuafordetay.css" rel="stylesheet" />
+    <link href="~/Belgeler/FrontEnd/Css/KullaniciProfilLink.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+<body ng-app="MyApp">
+
+    @RenderBody()
+
+    <footer id="main-footer" class="py-2 mt-5  footerback">
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col-md-6 mx-auto my-auto">
+                    <p class="lead">No Copyright &copy; Fatih Mandıralı</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <script src="~/Belgeler/FrontEnd/Js/jquery-3.3.1.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/bootstrap.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/popper.min.js"></script>
+
+    <script src="~/Belgeler/FrontEnd/Js/IllerListesi3.js"></script>
+
+    <script src="~/Belgeler/FrontEnd/Js/IlIcerigi.js"></script>
+
+    <script src="~/Belgeler/FrontEnd/Js/IllerKuaforDetay/KuaforSahipRegister.js"></script>
+    <script src="~/Belgeler/ilveilce/ilveilcejs.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/IllerKuaforListesi/KuaforListesi35.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/IllerKuaforListesi/KuaforAra4.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/IllerKuaforDetay/KuaforDetayRegister1.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/IllerKuaforDetay/KuaforKayitOl4.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/IllerKuaforDetay/KullaniciGirisYap2.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/IllerKuaforDetay/KullaniciLoginPaneli.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/IllerKuaforDetay/KullaniciProfilAyarlar6.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/SiraAl/KuaforElemanSec8.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/SiraAl/KuaforSiraAlDate.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/SiraAl/SecilenCesitler1.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/IllerKuaforDetay/KuaforFavorilereEkle.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/IllerKuaforDetay/KullaniciSiraIptal4.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/SiraAl/KuaforSiraAlSaatAralik.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/IllerKuaforDetay/KuaforMesajGonder2.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/KullaniciYorumYap/KullaniciMesajKutusu1.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/IllerKuaforDetay/KuaforSahipKayit.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/MainPage/KuaforKayitLogin1.js"></script>
+    <script src="~/Belgeler/FrontEnd/Js/MainPage/KuaforCreate1.js"></script>
 </body>
 </html>

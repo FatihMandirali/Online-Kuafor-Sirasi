@@ -1,0 +1,47 @@
+﻿
+<div class="col-md-12 kuaforler" ng-show="hiddenayarlarim">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="pricing card-deck flex-column flex-md-row mb-3" ng-controller="_kullaniciprofilayarlarim">
+                    <div class="card card-pricing text-center px-3 mb-4">
+                        <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white shadow-sm" id="trascesitbaslik">Ayarlarım</span>
+
+                        <div class="card-body pt-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <img src="~/Belgeler/Avatarlar/{{payar.Avatar}}" class="img-circle" width="250" height="250" />
+
+                                        <br /><br />
+                                        <input type="button" value="Avatar Seç" id="btnavatarsec" data-toggle="modal" data-target=".kullaniciprofilavatar" />
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    Ad :  <b class="">{{payar.Ad}}</b><br />
+                                    Soyad :  <b class="">{{payar.Soyad}}</b><br />
+                                    Kullanıcı Adı : <b class="">{{payar.KullaniciAdi}}</b><br />
+                                    Şifre : <b class="">{{payar.Sifre}}</b><br />
+                                    E-Mail : <b class="">{{payar.Email}}</b><br />
+                                    Telefon : <b class="">{{payar.Telefon}}</b><br />
+                                    Şehir : <b class="">{{payar.Sehir}}</b><br />
+                                    Semt : <b class="">{{payar.Semt}}</b><br />
+                                    <br /><br />
+                                    <button type="button" class="btn btn-outline-success mb-3" data-toggle="modal" data-target=".login-register-form1">Profili Düzenle</button>
+                                    
+                                </div>
+                            </div><br /><br />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_KullaniciProfilAyarlarAvatar")
+@Html.Partial("_KullaniciProfilAyarlarDetay")
+

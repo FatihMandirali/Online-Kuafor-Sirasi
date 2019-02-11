@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "GelecekSiraIncele";
+    Layout = "~/Views/KuaforAdmin/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Detaylar</h2>
+    </div>
+</div>
+<div class="row" ng-app="MyAppGelecekSira">
+    <div class="col-md-8 col-md-offset-2" ng-controller="gelecekSiraIncele">
+
+        <hr />
+
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Ad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Adi" value="{{glckSiraIncele.saatAralik}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Soyad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control Soyadi" value="{{glckSiraIncele.tarih}}" />
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Tc", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Tc" value="{{glckSiraIncele.kullanici}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Telefon", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Telefon" value="{{glckSiraIncele.trasCesidi}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Mail", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Mail" value="{{glckSiraIncele.eleman}}" />
+
+            </div>
+        </div>
+        <div class="form-group">
+            @*  <button type="button" id="elemanguncelle" class="btn btn-success">
+             <span class="glyphicon glyphicon-floppy-disk"></span>Güncelle
+         </button>
+        @Html.ActionLink("Listeye Dön", "Index", "Hizmetliler", null, new { @class = "btn btn-default" })*@
+
+            <a href="/KuaforAdmin/GelecekSira" class="btn btn-default">
+                Listeye Dön
+            </a>
+
+        </div>
+    </div>
+
+
+</div>
+

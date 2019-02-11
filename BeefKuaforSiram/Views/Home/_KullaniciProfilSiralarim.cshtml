@@ -1,0 +1,34 @@
+﻿
+<div class="col-md-12 kuaforler" ng-show="hiddensiralarim" ng-controller="kuaforlerProfilAlinanSiralar">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6" ng-repeat="x in kuaforAldigimSiralar">
+                <div class="pricing card-deck flex-column flex-md-row mb-3">
+                    <div class="card card-pricing text-center px-3 mb-4 btn-outline-secondary">
+                        <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white shadow-sm" id="trascesitbaslik">Sıralarım</span>
+                        <div class="card-body pt-0">
+                            <ul class="list-unstyled mb-4">
+                                <li><b>Traş Çeşidi : </b>{{x.trasCesidi}}</li>
+                                <li><b>Tarih : </b>{{x.tarih}}</li>
+                                <li><b>Traş Yapan Eleman : </b> {{x.kuaforElemani}}</li>
+                                <li><b>Kuafor Adı : </b> {{x.kuafor}}</li>
+                                <li><b>Saat Aralıgı : </b> {{x.saatAraligi}}</li>
+                                <li></li>
+                            </ul>
+                            <input type="hidden" id="kuaforAdiKullaniciYorum" value="{{x.kuafor}}" />
+                            <div ng-if="x.tamamlanmadurum==false">
+                                <input type="button" ng-if="x.siradurum==true" name="{{x.id}}" id="siraİptal" value="İptal" class="btn btn-danger" />
+                                <input type="button" ng-if="x.siradurum==false" name="{{x.id}}" id="kuaforSiraYorum" data-toggle="modal" data-target=".kuaforSiraYorumModal" value="Yorumunu Bırak" class="btn btn-outline-primary" />
+                            </div>
+                            <div ng-if="x.tamamlanmadurum==true">
+                               <input type="button" value="Tamamlandı" class="btn btn-outline-success" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_KullaniciSiralarYorumYap")
+</div>

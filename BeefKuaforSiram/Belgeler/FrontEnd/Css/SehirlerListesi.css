@@ -1,0 +1,16 @@
+﻿/*.sehirlerkutu {
+    width:50px !important;
+    height:50px !important;
+    
+}*/
+.kutucuk{
+     background-color:rgba(0,0,0,.7) !important;
+     text-decoration:none;
+}
+.footerback{
+     background-color:rgba(0,0,0,.7) !important;
+}
+a{
+text-decoration:none;
+color:white;
+}

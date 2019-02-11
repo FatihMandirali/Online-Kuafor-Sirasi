@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "GorevlerIncele";
+    Layout = "~/Views/YoneticiAdmin/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Detaylar</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2" ng-controller="gorevincele">
+
+        <hr />
+
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Soru", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control GorevAdi" value="{{grvincele.GorevAdi}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Cevap A", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control TamamlanmaAdet" value="{{grvincele.TamamlanmaAdet}}" />
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Cevap A", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control BasariPuani" value="{{grvincele.BasariPuani}}" />
+
+
+            </div>
+        </div>
+
+
+
+        <input type="hidden" class="dd" value="{{grvincele.Id}}" />
+
+        <div class="form-group">
+            <button type="button" id="gorevGuncelle" class="btn btn-success">
+                <span class="glyphicon glyphicon-floppy-disk"></span>Güncelle
+            </button>
+            @*@Html.ActionLink("Listeye Dön", "Index", "Hizmetliler", null, new { @class = "btn btn-default" })*@
+
+            <a href="/BackEnd/Gorevler/" class="btn btn-default">
+                Listeye Dön
+            </a>
+
+        </div>
+
+
+
+    </div>
+</div>
+
+

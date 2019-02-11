@@ -1,0 +1,29 @@
+﻿
+<div class="col-md-12 kuaforler" ng-show="hiddenbir" ng-controller="kuafordetaytrascesitleri">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4" ng-repeat="x in trscesitleri">
+                <div class="pricing card-deck flex-column flex-md-row mb-3">
+                    <div class="card card-pricing text-center px-3 mb-4">
+                        <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white shadow-sm" id="trascesitbaslik">Traş Çeşitleri</span>
+                        <div class="bg-transparent card-header pt-4 border-0">
+                            <h1 class="h1 font-weight-normal text-primary text-center mb-0" id="trascesiticerik" data-pricing-value="15"><span class="price">{{x.Cesit}}</span>
+                        </div>
+                        <div class="card-body pt-0">
+                            <ul class="list-unstyled mb-4">
+                                <li><b>Fiyat : </b>{{x.Fiyat}}₺</li>
+
+                                <li><b>Dk :</b> {{x.Dk}}</li>
+
+                            </ul>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

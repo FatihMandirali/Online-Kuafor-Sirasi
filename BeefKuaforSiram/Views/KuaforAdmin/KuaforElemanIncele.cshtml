@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "KuaforElemanIncele";
+    Layout = "~/Views/KuaforAdmin/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Detaylar</h2>
+    </div>
+</div>
+<div class="row" ng-app="MyAppEleman">
+    <div class="col-md-8 col-md-offset-2" ng-controller="kuaforelemanincele">
+
+        <hr />
+
+
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Ad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Adi" value="{{elemanin.Adi}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Soyad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control Soyadi" value="{{elemanin.Soyadi}}" />
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Tc", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Tc" value="{{elemanin.Tc}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Telefon", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Telefon" value="{{elemanin.Telefon}}" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*<input type="text" id="name2"  />*@
+            @Html.Label("Mail", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="text" class="form-control Mail" value="{{elemanin.Mail}}" />
+
+            </div>
+        </div>
+
+
+
+
+        <input type="hidden" class="dd" value="{{elemanin.Id}}" />
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            <button type="button" id="elemanguncelle" class="btn btn-success">
+                <span class="glyphicon glyphicon-floppy-disk"></span>Güncelle
+            </button>
+            @*@Html.ActionLink("Listeye Dön", "Index", "Hizmetliler", null, new { @class = "btn btn-default" })*@
+
+            <a href="/BackEnd/Blog/" class="btn btn-default">
+                Listeye Dön
+            </a>
+
+        </div>
+    </div>
+
+
+</div>
+

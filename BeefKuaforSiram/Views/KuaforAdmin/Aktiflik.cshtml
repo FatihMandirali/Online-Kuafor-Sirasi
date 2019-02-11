@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Aktiflik";
+    Layout = "~/Views/KuaforAdmin/Index.cshtml";
+}
+@if (@Session["kuaforsecim"] == null)
+{
+    <input type="hidden" id="sessiondeger" value="@Session["yoneticiYonet"]" />
+    <div class="bg-success p-3 col-md-12">
+        <div class="row">
+            <div class="col-md-8">
+                <b style="color:white">@Session["yoneticiYonetKuaforAd"]</b>&nbsp;&nbsp; Kuaforuna Bağlanıldı.
+            </div>
+            <div class="col-md-4">
+                <a href="/YoneticiAdmin/Kuaforler"><b class="pull-right mr-3 text-danger" style="cursor:default" id="btnYoneticiAdmin">Yönetici Admin</b></a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    
+    <input type="hidden" id="sessiondeger" value="@Session["kuaforsecim"]" />
+}
+
+<link href="~/Belgeler/BackEnd/KuaforAdmin/Css/KuaforAktiflik.css" rel="stylesheet" />
+
+
+<label for="exampleInputEmail1">Aktiflik</label>
+<div ng-app="deneme">
+    <div ng-controller="dene">
+
+        <div class="onoffswitch2" ng-if="firsat.Aktiflik==0">
+            <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox2" id="myonoffswitch2" checked>
+            <label class="onoffswitch-label2" for="myonoffswitch2">
+                <span class="onoffswitch-inner2"></span>
+                <span class="onoffswitch-switch2"></span>
+            </label>
+        </div>
+
+        <div class="onoffswitch1" ng-if="firsat.Aktiflik==1">
+            <input type="checkbox" name="onoffswitch1" class="onoffswitch-checkbox1" id="myonoffswitch1" checked>
+            <label class="onoffswitch-label1" for="myonoffswitch1">
+                <span class="onoffswitch-inner1"></span>
+                <span class="onoffswitch-switch1"></span>
+            </label>
+        </div>
+    </div>
+
+
+
+
+    <label for="exampleInputPassword1">Gerekçe</label>
+    <textarea class="form-control Gerekce" id="Gerekce" rows="10"></textarea>
+    <br />
+    <div ng-controller="dene">
+
+        <button type="button" id="subekapat" class="btn btn-success" ng-if="firsat.Aktiflik==1">
+            <span class="glyphicon glyphicon-floppy-disk"></span>Şubeyi Kapat
+        </button>
+        <button type="button" id="subeac" class="btn btn-success" ng-if="firsat.Aktiflik==0">
+            <span class="glyphicon glyphicon-floppy-disk"></span>Şubeyi Aç
+        </button>
+    </div>
+</div>
+@*<input type="checkbox" id="switch" /><label for="switch">Toggle</label>*@
+

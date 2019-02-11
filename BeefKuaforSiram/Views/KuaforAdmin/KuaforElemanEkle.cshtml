@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "KuaforElemanEkle";
+    Layout = "~/Views/KuaforAdmin/Index.cshtml";
+}
+
+@if (@Session["kuaforsecim"] == null)
+{
+    <input type="hidden" id="sessiondeger" value="@Session["yoneticiYonet"]" />
+    <div class="bg-success p-3 col-md-12">
+        <div class="row">
+            <div class="col-md-8">
+                <b style="color:white">@Session["yoneticiYonetKuaforAd"]</b>&nbsp;&nbsp; Kuaforuna Bağlanıldı.
+            </div>
+            <div class="col-md-4">
+                <a href="/YoneticiAdmin/Kuaforler"><b class="pull-right mr-3 text-danger" style="cursor:default" id="btnYoneticiAdmin">Yönetici Admin</b></a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <input type="hidden" id="sessiondeger" value="@Session["kuaforsecim"]" />
+}
+<div class="form-group">
+    @Html.Label("Ad", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        <input type="text" value="" name="Adi" id="Adi" class="form-control" />
+
+    </div>
+</div>
+<div class="form-group" ng-controller="kuaforsahibi">
+    @Html.Label("Soyad", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        <input type="text" value="" name="Soyadi" id="Soyadi" class="form-control" />
+
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.Label("Tc", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        <input type="text" value="" name="Tc" id="Tc" class="form-control" />
+
+    </div>
+</div>
+
+<!--KUAFOR GİRİŞ YAPTIKTAN SONRA SESSİONDAN BİLGİLERİ ALINIP EKLENMELER GERÇEKLEŞECEK-->
+<div class="form-group">
+    @Html.Label("Telefon", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        <input type="text" value="" name="Telefon" id="Telefon" class="form-control" />
+
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.Label("Mail", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        <input type="text" value="" name="Mail" id="Mail" class="form-control" />
+
+    </div>
+</div>
+
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <button type="button" id="kuaforelemanekle" class="btn btn-success">
+            <span class="glyphicon glyphicon-floppy-disk"></span>Ekle
+        </button>
+    </div>
+</div>
+
+
+

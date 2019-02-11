@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "GelecekSira";
+    Layout = "~/Views/KuaforAdmin/Index.cshtml";
+}
+
+
+
+@if (@Session["kuaforsecim"] == null)
+{
+    <input type="hidden" id="sessiondeger" value="@Session["yoneticiYonet"]" />
+    <div class="bg-success p-3 col-md-12">
+        <div class="row">
+            <div class="col-md-8">
+                <b style="color:white">@Session["yoneticiYonetKuaforAd"]</b>&nbsp;&nbsp; Kuaforuna Bağlanıldı.
+            </div>
+            <div class="col-md-4">
+                <a href="/YoneticiAdmin/Kuaforler"><b class="pull-right mr-3 text-danger" style="cursor:default" id="btnYoneticiAdmin">Yönetici Admin</b></a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <input type="hidden" id="sessiondeger" value="@Session["kuaforsecim"]" />
+}
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Alınmış Sıralar
+        <a href="/KuaforAdmin/SiraOlustur" class="btn btn-success btn-sm pull-right">Hızlı Sıra Oluştur</a>
+    </div>
+    <div class="card-body" ng-app="MyAppGelecekSira">
+        <div class="table-responsive" ng-controller="gelecekSira">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Saat Aralık</th>
+                        <th>Tarih</th>
+                        <th>Kullanıcı</th>
+                        <th>Eleman</th>
+                        <th>Traş Çeşidi</th>
+                        <th>İncele</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Saat Aralık</th>
+                        <th>Tarih</th>
+                        <th>Kullanıcı</th>
+                        <th>Eleman</th>
+                        <th>Traş Çeşidi</th>
+                        <th>İncele</th>
+                        <th>Sil</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr ng-repeat="x in glckSira">
+
+                        <td>{{x.saatAralik}}</td>
+                        <td>{{x.tarih}}</td>
+                        <td>{{x.kullanici}}</td>
+                        <td>{{x.eleman}}</td>
+                        <td>{{x.trasCesidi}}</td>
+                        <td><a href="/KuaforAdmin/GelecekSiraIncele/{{x.id}}" class="btn btn-primary">İncele</a> </td>
+                        <td><input type="button" name="{{x.id}}" class="btn btn-success gelecekSiraTamamla" id="gelecekSiraTamamla" value="Tamamla" /></td>
+
+                    </tr>
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>

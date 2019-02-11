@@ -1,0 +1,30 @@
+﻿
+
+<div class="col-md-12 kuaforler" ng-show="hiddenuc" ng-controller="kuafordetayyorumlar">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <div class="container">
+
+
+        <div class="card" ng-repeat="x in trsyorum">
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-10">
+                        <p>
+                            <b class="float-left" id="kuaforAdi"><strong>{{x.KullaniciAdi}}</strong></b>
+
+                            <span class="float-right"> <b>Hız :</b> <i id="hizPuan">{{x.HizPuan}}</i></span>
+                            <span class="float-right"> <b>Özen :</b> <i id="ozenPuan">{{x.OzenPuan}}</i></span>
+                            <span class="float-right"> <b>Kalite :</b> <i id="kalitePuan">{{x.KalitePuan}}</i></span>
+                            <!--Her yorumda puanda vermek zorunda ve sipariş verince yorum yapabilecek.-->
+                        </p>
+                        <div class="clearfix"></div>
+                        <p>{{x.Yorum}}</p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

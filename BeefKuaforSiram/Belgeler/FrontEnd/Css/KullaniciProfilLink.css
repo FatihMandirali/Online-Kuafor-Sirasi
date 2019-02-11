@@ -1,0 +1,9 @@
+﻿#kullaniciProfilLinkAyarlari
+{
+    text-decoration:none;
+    color:black;
+}
+
+    #kullaniciProfilLinkAyarlari:hover {
+        color: #1886c7;
+    }

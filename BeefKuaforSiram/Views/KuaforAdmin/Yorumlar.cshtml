@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Yorumlar";
+    Layout = "~/Views/KuaforAdmin/Index.cshtml";
+}
+@if (@Session["kuaforsecim"] == null)
+{
+    <input type="hidden" id="sessiondeger" value="@Session["yoneticiYonet"]" />
+    <div class="bg-success p-3 col-md-12">
+        <div class="row">
+            <div class="col-md-8">
+                <b style="color:white">@Session["yoneticiYonetKuaforAd"]</b>&nbsp;&nbsp; Kuaforuna Bağlanıldı.
+            </div>
+            <div class="col-md-4">
+                <a href="/YoneticiAdmin/Kuaforler"><b class="pull-right mr-3 text-danger" style="cursor:default" id="btnYoneticiAdmin">Yönetici Admin</b></a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <input type="hidden" id="sessiondeger" value="@Session["kuaforsecim"]" />
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Yorumlar
+
+    </div>
+    <div class="card-body" ng-app="MyAppYorumlar">
+        <div class="table-responsive" ng-controller="yorumlar">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Kullanıcı Adı</th>
+                        <th>Yorum</th>
+                        <th>Hız Puan</th>
+                        <th>Özen Puan</th>
+                        <th>Kalite Puan</th>
+                        <th>İncele</th>
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Saat Aralık</th>
+                        <th>Tarih</th>
+                        <th>Kullanıcı</th>
+                        <th>Eleman</th>
+                        <th>Traş Çeşidi</th>
+                        <th>İncele</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr ng-repeat="x in yrm">
+
+                        <td>{{x.kullaniciAdi}}</td>
+                        <td>{{x.yorum}}</td>
+                        <td>{{x.hizPuan}}</td>
+                        <td>{{x.ozenPuan}}</td>
+                        <td>{{x.kalitePuan}}</td>
+                        <td><a href="/KuaforAdmin/YorumlarIncele/{{x.id}}" class="btn btn-primary">İncele</a> </td>
+
+                    </tr>
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

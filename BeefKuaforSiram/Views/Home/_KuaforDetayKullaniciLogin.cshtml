@@ -1,0 +1,100 @@
+﻿
+@if (Session["kulanici"] == null)
+{
+    <div class="card">
+        <div class="card-body">
+            <h6 class="card-text">Kullanıcı Adı</h6>
+            <input type="text" class="form-control" id="kullaniciadi" />
+            <h6 class="card-text mt-2">Şifre</h6>
+            <input type="text" class="form-control" id="sifre" />
+            <h6 style="color:#1886c7;">Şifreni mi Unuttun ?</h6>
+            <div class="col-md-12 mt-2">
+                <input type="button" class="navbarblog1" value="Yeni Üyelik" data-toggle="modal" data-target=".login-register-form" />
+                <input type="button" class=" navbarblog1  " style="background-color:white;" id="btngirisyap" value="Giriş Yap" />
+            </div>
+
+
+            @*<input type="button" class="navbarblog1 mt-2 col-md-12" style="background-color:white;" value="Facebook ile Giriş Yap" />
+            <input type="button" class="navbarblog1 mt-2 col-md-12" style="background-color:white;" value="Google ile Giriş Yap" />*@
+
+
+        </div>
+
+    </div>
+
+}
+else
+{
+
+    <div class="panel panel-default">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row toggle" id="dropdown-detail-1" data-toggle="detail-1">
+                    <div class="col-xs-10">
+                        <b style="cursor:default">@TempData["kullaniciessi"]</b>
+                    </div>
+                    <div class="col-xs-2 ml-auto"><i class="fa fa-chevron-down pull-right"></i></div>
+                </div>
+                <div id="detail-1">
+                    <hr>
+                    <div class="container">
+                        <div class="fluid-row">
+                            <div class="col-md-12">
+                                <a href="/Home/KullaniciProfil/@TempData["kullaniciId"]" id="kullaniciProfilLinkAyarlari">Profilim</a>
+                            </div>
+                            <br />
+                            <div class="col-md-12">
+                                <a href="/Home/KullaniciProfil/@TempData["kullaniciId"]" id="kullaniciProfilLinkAyarlari">Aldığım Sıralar</a>
+                            </div>
+                            <br />
+                            <div class="col-md-12">
+                                <a href="/Home/KullaniciProfil/@TempData["kullaniciId"]" id="kullaniciProfilLinkAyarlari">Favorilerim</a>
+                            </div><br />
+                            <div class="col-md-12">
+                                <a href="/Home/KullaniciProfil/@TempData["kullaniciId"]" id="kullaniciProfilLinkAyarlari">Mesaj Kutusu</a>
+                            </div>
+                            <br />
+                            <div class="col-md-12">
+                                <a href="/Home/KullaniciProfil/@TempData["kullaniciId"]" id="kullaniciProfilLinkAyarlari">Ayarlarım</a>
+                            </div>
+                            <br />
+
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+            @*<li class="list-group-item">
+                <div class="row toggle" id="dropdown-detail-2" data-toggle="detail-2">
+                    <div class="col-xs-10">
+                        <b style="cursor:default">Cüzdanım</b>
+                    </div>
+                    <div class="col-xs-2 ml-auto"><i class="fa fa-chevron-down"></i></div>
+                </div>
+                <div id="detail-2">
+                    <hr>
+                    <div class="container">
+                        <div class="fluid-row">
+                            <div class="col-md-12">
+                                <a href="/Home/KullaniciCuzdan/@TempData["kullaniciId"]" id="kullaniciProfilLinkAyarlari">Cüzdanım Kontrol</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>*@
+
+            <li class="list-group-item">
+                <div class="row toggle" id="dropdown-detail-3" data-toggle="detail-3">
+                    <div class="col-xs-10">
+                        <b id="btnlogincikisyap" style="cursor:default">Çıkış Yap</b>
+                    </div>
+                    <div class="col-xs-2 ml-auto"><i class="fa fa-chevron-down"></i></div>
+                </div>
+            </li>
+        </ul>
+        <input type="hidden" id="kullaniciSession" value="@Session["kulanici"]" />
+    </div>
+}
+
+<input type="button" class="navbarblog1 mt-2 col-md-12" id="sehirsecbtn" style="background-color:white;" value="Şehir Seç" />
+

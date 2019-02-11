@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "KuaforSahip";
+    Layout = "~/Views/YoneticiAdmin/Index.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Kuaför Sahipleri
+        <a href="/YoneticiAdmin/KuaforSahipEkle" class="btn btn-success btn-sm pull-right">Oluştur</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive" ng-controller="kuaforsahibi">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>E-Mail</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Şifre</th>
+                        <th>Şehir</th>
+                        <th>Semt</th>
+                        <th>Telefon</th>
+                        <th>Tc</th>
+                     
+                        <th>İncele</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>E-Mail</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Şifre</th>
+                        <th>Şehir</th>
+                        <th>Semt</th>
+                        <th>Telefon</th>
+                        <th>Tc</th>
+                      
+                        <th>İncele</th>
+                        <th>Sil</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr ng-repeat="x in kuaforsah">
+                        <td>{{x.Ad}}</td>
+                        <td>{{x.Soyad}}</td>
+                        <td>{{x.Email}}</td>
+                        <td>{{x.KullaniciAdi}}</td>
+                        <td>{{x.Sifre}}</td>
+                        <td>{{x.Sehir}}</td>
+                        <td>{{x.Semt}}</td>
+                        <td>{{x.Telefon}}</td>
+                        <td>{{x.Tc}}</td>
+                      
+                        <td><a href="/YoneticiAdmin/KuaforSahipIncele/{{x.Id}}" class="btn btn-primary">İncele</a> </td>
+                        <td><input type="button" name="{{x.Id}}" class="btn btn-danger kuaforsahipsil" id="kuaforsahipsil" value="Sil" /></td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+

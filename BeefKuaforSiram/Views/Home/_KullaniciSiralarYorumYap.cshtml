@@ -1,0 +1,77 @@
+﻿
+
+<!--Modal: Login / Register Form-->
+<div class="modal kuaforSiraYorumModal" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+        <!--Content-->
+        <div class="modal-content">
+
+            <!--Modal cascading tabs-->
+            <div class="modal-c-tabs">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+
+                    <li class="nav-item">
+                        <p class="nav-link" data-toggle="tab" href="#panel8" role="tab">
+                            <i class="fa fa-user-plus mr-1"></i>
+                            Yorum Paneli
+                        </p>
+                    </li>
+                </ul>
+
+                <!-- Tab panels -->
+                <div class="tab-content">
+                    <!--Panel 7-->
+                    <!--/.Panel 7-->
+                    <!--Panel 8-->
+                    <div class="tab-pane active" id="panel8" role="tabpanel">
+                        <div id="kuaforAdiGelecek">
+                            
+                        </div>
+
+                        <!--Body-->
+                        <div class="modal-body">
+
+                            
+
+
+                            <div class="md-form form-sm">
+                                <label data-error="wrong" data-success="right" for="modalLRInput12">Yorum Yap</label>
+                                <textarea class="form-control form-control-sm validate" id="txtYorumYap" rows="10" cols="5"></textarea>
+
+                            </div>
+                            <br />
+                            <div class="md-form form-sm">
+                                <label data-error="wrong" data-success="right" for="modalLRInput12">Hız Puan</label><br />
+                                <input type="number" id="txtHizPuan" max="5" min="0" />
+                            </div>
+                            <div class="md-form form-sm">
+                                <label data-error="wrong" data-success="right" for="modalLRInput12">Özen Puan</label><br />
+                                <input type="number" id="txtOzenPuan" max="5" min="0" />
+                            </div>
+                            <div class="md-form form-sm">
+                                <label data-error="wrong" data-success="right" for="modalLRInput12">Kalite Puan</label><br />
+                                <input type="number" id="txtKalitePuan" max="5" min="0" />
+                            </div>
+                            <br />
+                            <input type="button" value="Yorumu Yap" class="btn btn-outline-primary" id="kuaforYorumYap" />
+
+
+
+                        </div>
+                        <!--Footer-->
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Kapat</button>
+                        </div>
+                    </div>
+                    <!--/.Panel 8-->
+                </div>
+
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!--Modal: Login / Register Form-->

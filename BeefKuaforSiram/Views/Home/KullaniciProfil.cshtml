@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "KullaniciProfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#nvbCollapse">
+            <span class="navbar-toggler-icon"> </span>
+        </button>
+        <a href="#" class="navbar-brand">Kuaför Sırası</a>
+        <div class="collapse navbar-collapse" id="nvbCollapse">
+            <div class=" ml-5 col-md-3">
+
+            </div>
+            <div class=" ml-2 col-md-5">
+
+
+            </div>
+
+          
+            <a href="#" class="btn btn-sm ml-2 navbarblog" data-toggle="modal" data-target=".login-register-form">Kullanıcı Üyeliği</a>
+            <a href="#" class="btn btn-sm ml-2 navbarblog" data-toggle="modal" data-target=".kuaforYonetimUyelik">Kuaför Üyeliği</a>
+           
+
+        </div>
+    </div>
+</nav>
+<div style="margin-top:100px !important;"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            @Html.Partial("_KuaforDetayKullaniciLogin")
+        </div>
+        <div class="col-md-9">
+            <div class="col-md-12">
+
+                <div class="col-md-12 kuaforler" ng-controller="kullaniciprofilsayfasi">
+                    <!--   traş çeşitleri , bilgiler , yorumlar
+                    Şimdi Kaldığım Yer Butonlara Tıklayınca Sadece Birtanesi Aktif Olsun
+                    -->
+                    <div class="col-md-12">
+                        <div class="row mx-auto">
+                            <a class="btn col-sm-2 ml-4" id="trascesitbaslik" ng-click="kprofilim()">
+                                Profil
+                            </a>
+                            <a class="btn col-sm-2 ml-2" id="trascesitbaslik" ng-click="ksiralarim()">
+                                Sıralarım
+                            </a>
+                            <a class="btn col-sm-2 ml-2" id="trascesitbaslik" ng-click="kfavorilerim()">
+                                Favorilerim
+                            </a>
+                            <a class="btn col-sm-2 ml-2" id="trascesitbaslik" ng-click="kmesajkutusu()">
+                                Mesaj Kutusu
+                            </a>
+                            <a class="btn col-sm-2 ml-2" id="trascesitbaslik" ng-click="kayarlarim()">
+                                Ayarlarım
+                            </a>
+                        </div><hr />
+                        @Html.Partial("_KullaniciProfilProfil")
+                        @Html.Partial("_KullaniciProfilSiralarim")
+                        @Html.Partial("_KullaniciProfilFavorilerim")
+                        @Html.Partial("_KullaniciProfilAyarlarim")
+                        @Html.Partial("_KullaniciProfilMesajlarim")
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+@Html.Partial("_KullaniciRegister")
+@Html.Partial("_KuaforAdminUyeligi")
+

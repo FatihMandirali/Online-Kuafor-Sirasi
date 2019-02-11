@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Kuaforler";
+    Layout = "~/Views/YoneticiAdmin/Index.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Kuaförler
+        <a href="/YoneticiAdmin/KuaforEkle" class="btn btn-success btn-sm pull-right">Oluştur</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive" ng-controller="kuaforler">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Kuaför Ad</th>
+                        <th>Şehir</th>
+                        <th>Semt</th>
+                        <th>Adres</th>
+                        <th>Telefon</th>
+                        <th>Email</th>
+                        <th>Sahip</th>
+                        <th>Bay/Bayan</th>
+                        <th>Açılma Saati</th>
+                        <th>Kapanma Saati</th>
+                        <th>Puan</th>
+                        <th>Eklenme Tarihi</th>
+                        <th>Sil</th>
+                        <th>İncele</th>
+                        <th>Yönet</th>
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Kuaför Ad</th>
+                        <th>Şehir</th>
+                        <th>Semt</th>
+                        <th>Adres</th>
+                        <th>Telefon</th>
+                        <th>Email</th>
+                        <th>Sahip</th>
+                        <th>Bay/Bayan</th>
+                        <th>Açılma Saati</th>
+                        <th>Kapanma Saati</th>
+                        <th>Puan</th>
+                        <th>Eklenme Tarihi</th>
+                        <th>Sil</th>
+                        <th>İncele</th>
+                        <th>Yönet</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr ng-repeat="x in kuafor">
+                        <td>{{x.kuaforAdi}}</td>
+                        <td>{{x.sehir}}</td>
+                        <td>{{x.semt}}</td>
+                        <td>{{x.adres}}</td>
+                        <td>{{x.telefon}}</td>
+                        <td>{{x.mail}}</td>
+                        <td>{{x.sahip}}</td>
+                        <td>{{x.cinsiyet}}</td>
+                        <td>{{x.acilmaSaati}}</td>
+                        <td>{{x.kapanmaSaati}}</td>
+                        <td>{{x.puan}}</td>
+                        <td>{{x.eklenmeTarihi}}</td>
+                        <td><a href="/YoneticiAdmin/KuaforIncele/{{x.id}}" class="btn btn-primary">İncele</a> </td>
+                        <td><input type="button" name="{{x.id}}" class="btn btn-danger kuaforsil" id="kuaforsil" value="Sil" /></td>
+                        <td><input type="button" name="{{x.id}}" class="btn btn-success kuaforYonet" id="kuaforYonet" value="Yönet" /></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
